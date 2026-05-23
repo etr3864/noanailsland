@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
 import { LOGO_URL } from '../config/constants'
 import useScrollPosition from '../hooks/useScrollPosition'
 
@@ -42,15 +41,12 @@ export default function Header() {
   const activeSection = useActiveSection()
 
   return (
-    <motion.header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+    <header
+      className={`anim-header fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
         scrolled
           ? 'bg-bg-primary/70 backdrop-blur-md border-b border-gold/10 shadow-sm'
           : 'bg-transparent'
       }`}
-      initial={{ y: -80 }}
-      animate={{ y: 0 }}
-      transition={{ delay: 1.4, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <div className={`max-w-lg mx-auto px-4 flex items-center justify-between transition-all duration-500 ${
         scrolled ? 'h-14' : 'h-20'
@@ -67,13 +63,11 @@ export default function Header() {
                 }`}
               >
                 {item.label}
-                {isActive && (
-                  <motion.div
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gold rounded-full"
-                    layoutId="nav-indicator"
-                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                  />
-                )}
+                <span
+                  className={`absolute -bottom-1 left-0 right-0 h-0.5 bg-gold rounded-full transition-all duration-300 ${
+                    isActive ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+                  }`}
+                />
               </a>
             )
           })}
@@ -86,6 +80,6 @@ export default function Header() {
           }`}
         />
       </div>
-    </motion.header>
+    </header>
   )
 }
