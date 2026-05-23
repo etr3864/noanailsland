@@ -218,7 +218,7 @@ export default function Works() {
       </motion.p>
 
       <motion.div
-        className="grid grid-cols-2 gap-3 max-w-lg mx-auto mb-12"
+        className="grid grid-cols-2 gap-4 max-w-xl mx-auto mb-12"
         variants={stagger}
         initial="hidden"
         whileInView="visible"
@@ -262,7 +262,7 @@ export default function Works() {
 
       <motion.div
         ref={scrollRef}
-        className="flex gap-3 overflow-x-auto max-w-lg mx-auto pb-3 snap-x snap-mandatory scrollbar-hide"
+        className="flex gap-3 overflow-x-auto max-w-xl mx-auto pb-3 snap-x snap-mandatory scrollbar-hide"
         style={{ WebkitOverflowScrolling: 'touch' }}
         variants={stagger}
         initial="hidden"
@@ -272,7 +272,7 @@ export default function Works() {
         {GALLERY_ITEMS.map((item, i) => (
           <motion.div
             key={i}
-            className="relative flex-shrink-0 w-40 h-52 rounded-lg border border-gold/30 overflow-hidden cursor-pointer hover:border-gold hover:scale-105 transition-all duration-300 snap-center"
+            className="relative flex-shrink-0 w-48 h-64 rounded-lg border border-gold/30 overflow-hidden cursor-pointer hover:border-gold hover:scale-105 transition-all duration-300 snap-center"
             variants={scaleIn}
             onClick={() => openLightbox(i)}
           >
