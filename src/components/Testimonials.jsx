@@ -54,12 +54,11 @@ export default function Testimonials() {
               key={i}
               className="flex-shrink-0 w-64 h-80 rounded-lg bg-beige/5 border border-beige/10 snap-center overflow-hidden hover:rotate-0 hover:-translate-y-1 transition-all duration-300"
               variants={{
-                hidden: { opacity: 0, x: 40 },
+                hidden: { opacity: 0 },
                 visible: {
                   opacity: 1,
-                  x: 0,
                   rotate: rotation,
-                  transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
+                  transition: { duration: 0.5, ease: 'easeOut' },
                 },
               }}
               whileHover={{ rotate: 0, y: -4 }}

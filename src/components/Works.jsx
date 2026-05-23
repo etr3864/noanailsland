@@ -33,24 +33,23 @@ const GALLERY_ITEMS = [
 
 const stagger = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
+  visible: { transition: { staggerChildren: 0.08 } },
 }
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 12 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.6, ease: 'easeOut' },
   },
 }
 
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.97 },
+const fadeOnly = {
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    scale: 1,
-    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.5, ease: 'easeOut' },
   },
 }
 
@@ -225,7 +224,7 @@ export default function Works() {
         viewport={{ once: true, amount: 0.15 }}
       >
         {BEFORE_AFTER_PAIRS.map((pair, i) => (
-          <motion.div key={i} variants={fadeUp}>
+          <motion.div key={i} variants={fadeOnly}>
             <BeforeAfterSlider
               beforeSrc={pair.before}
               afterSrc={pair.after}
@@ -273,7 +272,7 @@ export default function Works() {
           <motion.div
             key={i}
             className="relative flex-shrink-0 w-48 h-64 rounded-lg border border-gold/30 overflow-hidden cursor-pointer hover:border-gold hover:scale-105 transition-all duration-300 snap-center"
-            variants={scaleIn}
+            variants={fadeOnly}
             onClick={() => openLightbox(i)}
           >
             {item.type === 'video' ? (
