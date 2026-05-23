@@ -10,7 +10,7 @@ export default function FloatingWhatsApp({ onClick }) {
         showButton ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'
       }`}
     >
-      לחצי כאן וקבעי איתי תור
+      לחצי כאן ונקבע לך תור
     </button>
   )
 }
