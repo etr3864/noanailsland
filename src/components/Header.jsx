@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { LOGO_URL } from '../config/constants'
 import useScrollPosition from '../hooks/useScrollPosition'
 
@@ -13,25 +13,25 @@ const NAV_ITEMS = [
 function useActiveSection() {
   const [active, setActive] = useState('hero')
 
-  useEffect(() => {
-    const sections = NAV_ITEMS.map(item => item.href.slice(1))
+  const calcActive = useCallback(() => {
+    const midpoint = window.innerHeight * 0.4
+    let current = 'hero'
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) setActive(entry.target.id)
-        })
-      },
-      { threshold: 0.2, rootMargin: '-30% 0px -40% 0px' }
-    )
+    for (const item of NAV_ITEMS) {
+      const el = document.getElementById(item.href.slice(1))
+      if (!el) continue
+      const rect = el.getBoundingClientRect()
+      if (rect.top <= midpoint) current = item.href.slice(1)
+    }
 
-    sections.forEach(id => {
-      const el = document.getElementById(id)
-      if (el) observer.observe(el)
-    })
-
-    return () => observer.disconnect()
+    setActive(current)
   }, [])
+
+  useEffect(() => {
+    calcActive()
+    window.addEventListener('scroll', calcActive, { passive: true })
+    return () => window.removeEventListener('scroll', calcActive)
+  }, [calcActive])
 
   return active
 }
@@ -39,6 +39,14 @@ function useActiveSection() {
 export default function Header() {
   const scrolled = useScrollPosition(300)
   const activeSection = useActiveSection()
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault()
+    const el = document.getElementById(href.slice(1))
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
 
   return (
     <header
@@ -58,6 +66,7 @@ export default function Header() {
               <a
                 key={item.href}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className={`relative text-sm font-bold transition-colors duration-300 ${
                   isActive ? 'text-gold' : 'text-beige/70 hover:text-gold'
                 }`}
