@@ -21,7 +21,7 @@ export default function AboutMe() {
       viewport={{ once: true, amount: 0.3 }}
     >
       <motion.div
-        className="w-56 h-56 rounded-full border-2 border-gold/30 mb-4 overflow-hidden"
+        className="w-44 h-44 rounded-full border-2 border-gold/30 mb-4 overflow-hidden"
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
@@ -30,7 +30,7 @@ export default function AboutMe() {
         <img
           src={PORTRAIT_URL}
           alt="נועה תורגמן"
-          className="w-full h-[150%] object-cover object-top"
+          className="w-full h-[130%] object-cover object-top"
           loading="lazy"
           decoding="async"
         />

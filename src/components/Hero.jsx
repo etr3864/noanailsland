@@ -55,7 +55,7 @@ export default function Hero({ onCtaClick }) {
 
         <button
           onClick={onCtaClick}
-          className="anim-hero-cta w-full max-w-sm py-4 rounded-full bg-gold text-bg-primary font-bold text-lg cursor-pointer animate-pulse-gold hover:scale-[1.03] active:scale-[0.97] transition-transform mb-5"
+          className="anim-hero-cta w-full max-w-sm py-4 rounded-full bg-gold text-bg-primary font-bold text-lg cursor-pointer hover:scale-[1.03] active:scale-[0.97] transition-transform mb-5"
         >
           בואי נקבע לך תור
         </button>
