@@ -5,8 +5,8 @@ function DeferredDecor() {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
-    const id = requestIdleCallback(() => setShow(true), { timeout: 3000 })
-    return () => cancelIdleCallback(id)
+    const id = setTimeout(() => setShow(true), 2500)
+    return () => clearTimeout(id)
   }, [])
 
   if (!show) return null
