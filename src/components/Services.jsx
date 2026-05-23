@@ -4,19 +4,6 @@ import GoldDivider from './GoldDivider'
 import AboutMe from './AboutMe'
 import { ServicesDecor } from './SectionDecor'
 
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-}
-
-const cardUp = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration: 0.5, ease: 'easeOut' },
-  },
-}
-
 export default function Services() {
   return (
     <section id="services" className="relative px-5 py-12 section-services bg-mesh">
@@ -42,22 +29,15 @@ export default function Services() {
         בלי הפתעות בסוף, מה שכתוב זה מה שמשלמים
       </motion.p>
 
-      <motion.div
-        className="max-w-sm mx-auto space-y-3"
-        variants={stagger}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.15 }}
-      >
+      <div className="max-w-sm mx-auto space-y-3">
         {SERVICES.map((service, i) => (
-          <motion.div
+          <div
             key={i}
             className={`flex items-center justify-between py-3 px-4 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
               service.highlighted
                 ? 'border-2 border-gold bg-gold/5 shadow-[0_0_15px_rgba(201,168,76,0.1)]'
                 : 'border border-beige/10 hover:border-beige/20'
             }`}
-            variants={cardUp}
           >
             <span className={`text-sm ${service.highlighted ? 'font-bold text-white' : 'text-beige/80'}`}>
               {service.name}
@@ -67,9 +47,9 @@ export default function Services() {
             }`}>
               {service.price}₪
             </span>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
 
       <AboutMe />
 

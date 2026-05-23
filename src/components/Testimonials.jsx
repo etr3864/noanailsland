@@ -5,11 +5,6 @@ import { TestimonialsDecor } from './SectionDecor'
 
 const TESTIMONIAL_SCREENSHOTS = [null, null, null, null, null]
 
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-}
-
 export default function Testimonials() {
   const scrollRef = useRef(null)
 
@@ -38,30 +33,18 @@ export default function Testimonials() {
         </motion.p>
       </div>
 
-      <motion.div
+      <div
         ref={scrollRef}
         className="flex gap-4 overflow-x-auto px-5 pb-4 snap-x snap-mandatory scrollbar-hide"
         style={{ WebkitOverflowScrolling: 'touch' }}
-        variants={stagger}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
       >
         {TESTIMONIAL_SCREENSHOTS.map((src, i) => {
           const rotation = i % 2 === 0 ? 1.5 : -1.5
           return (
-            <motion.div
+            <div
               key={i}
               className="flex-shrink-0 w-64 h-80 rounded-lg bg-beige/5 border border-beige/10 snap-center overflow-hidden hover:rotate-0 hover:-translate-y-1 transition-all duration-300"
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  rotate: rotation,
-                  transition: { duration: 0.5, ease: 'easeOut' },
-                },
-              }}
-              whileHover={{ rotate: 0, y: -4 }}
+              style={{ transform: `rotate(${rotation}deg)` }}
             >
               {src ? (
                 <img src={src} alt={`ביקורת ${i + 1}`} className="w-full h-full object-cover" />
@@ -73,10 +56,10 @@ export default function Testimonials() {
                   סקרינשוט {i + 1}
                 </div>
               )}
-            </motion.div>
+            </div>
           )
         })}
-      </motion.div>
+      </div>
     </section>
   )
 }

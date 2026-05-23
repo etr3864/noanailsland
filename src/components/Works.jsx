@@ -31,25 +31,12 @@ const GALLERY_ITEMS = [
   { type: 'image', src: 'https://res.cloudinary.com/daowx6msw/image/upload/q_auto,f_auto,w_400/v1779569227/WhatsApp_Image_2026-05-23_at_22.40.07_4_vjp46u.jpg' },
 ]
 
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
-}
-
 const fadeUp = {
   hidden: { opacity: 0, y: 12 },
   visible: {
     opacity: 1,
     y: 0,
     transition: { duration: 0.6, ease: 'easeOut' },
-  },
-}
-
-const fadeOnly = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration: 0.5, ease: 'easeOut' },
   },
 }
 
@@ -216,23 +203,16 @@ export default function Works() {
         גררי ותראי איך הגיעו ואיך יצאו
       </motion.p>
 
-      <motion.div
-        className="grid grid-cols-2 gap-4 max-w-xl mx-auto mb-12"
-        variants={stagger}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.15 }}
-      >
+      <div className="grid grid-cols-2 gap-4 max-w-xl mx-auto mb-12">
         {BEFORE_AFTER_PAIRS.map((pair, i) => (
-          <motion.div key={i} variants={fadeOnly}>
-            <BeforeAfterSlider
-              beforeSrc={pair.before}
-              afterSrc={pair.after}
-              index={i}
-            />
-          </motion.div>
+          <BeforeAfterSlider
+            key={i}
+            beforeSrc={pair.before}
+            afterSrc={pair.after}
+            index={i}
+          />
         ))}
-      </motion.div>
+      </div>
 
       <GoldDivider />
 
@@ -259,20 +239,15 @@ export default function Works() {
         החליקי לעוד
       </motion.p>
 
-      <motion.div
+      <div
         ref={scrollRef}
         className="flex gap-3 overflow-x-auto max-w-xl mx-auto pb-3 snap-x snap-mandatory scrollbar-hide"
         style={{ WebkitOverflowScrolling: 'touch' }}
-        variants={stagger}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.15 }}
       >
         {GALLERY_ITEMS.map((item, i) => (
-          <motion.div
+          <div
             key={i}
             className="relative flex-shrink-0 w-48 h-64 rounded-lg border border-gold/30 overflow-hidden cursor-pointer hover:border-gold hover:scale-105 transition-all duration-300 snap-center"
-            variants={fadeOnly}
             onClick={() => openLightbox(i)}
           >
             {item.type === 'video' ? (
@@ -297,9 +272,9 @@ export default function Works() {
             ) : (
               <img src={item.src} alt={`תוצאה ${i + 1}`} className="w-full h-full object-cover" loading="lazy" decoding="async" />
             )}
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
 
       {/* Lightbox */}
       <AnimatePresence>
