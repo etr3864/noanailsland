@@ -47,40 +47,31 @@ body {
 /* Section backgrounds — feminine lilac/rose, elegant nail-salon feel */
 .section-hero {
   background:
-    radial-gradient(ellipse 70% 50% at 50% 30%, rgba(201, 168, 76, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 60% at 75% 60%, rgba(180, 130, 200, 0.10) 0%, transparent 45%),
-    radial-gradient(ellipse 45% 45% at 20% 70%, rgba(220, 160, 190, 0.08) 0%, transparent 40%),
-    linear-gradient(170deg, #2e2538 0%, #2a2335 50%, #282234 100%);
+    radial-gradient(ellipse 80% 60% at 60% 50%, rgba(180, 130, 200, 0.10) 0%, transparent 60%),
+    linear-gradient(170deg, #2e2538 0%, #282234 100%);
 }
 
 .section-works {
   background:
-    radial-gradient(ellipse 60% 50% at 30% 35%, rgba(201, 168, 76, 0.05) 0%, transparent 45%),
-    radial-gradient(ellipse 55% 55% at 70% 60%, rgba(170, 120, 190, 0.09) 0%, transparent 45%),
-    radial-gradient(ellipse 35% 35% at 50% 15%, rgba(230, 180, 200, 0.06) 0%, transparent 35%),
-    linear-gradient(175deg, #282234 0%, #2c2537 50%, #2a2436 100%);
+    radial-gradient(ellipse 70% 60% at 40% 50%, rgba(170, 120, 190, 0.09) 0%, transparent 55%),
+    linear-gradient(175deg, #282234 0%, #2a2436 100%);
 }
 
 .section-services {
   background:
-    radial-gradient(ellipse 65% 50% at 55% 40%, rgba(201, 168, 76, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 55% at 25% 55%, rgba(160, 110, 180, 0.09) 0%, transparent 42%),
-    radial-gradient(ellipse 35% 40% at 80% 75%, rgba(220, 170, 200, 0.06) 0%, transparent 35%),
-    linear-gradient(180deg, #2a2436 0%, #2d2639 50%, #2b2537 100%);
+    radial-gradient(ellipse 70% 55% at 50% 45%, rgba(160, 110, 180, 0.09) 0%, transparent 55%),
+    linear-gradient(180deg, #2a2436 0%, #2b2537 100%);
 }
 
 .section-testimonials {
   background:
-    radial-gradient(ellipse 55% 55% at 40% 45%, rgba(175, 130, 195, 0.09) 0%, transparent 45%),
-    radial-gradient(ellipse 40% 40% at 75% 30%, rgba(201, 168, 76, 0.05) 0%, transparent 35%),
-    radial-gradient(ellipse 35% 40% at 80% 75%, rgba(210, 150, 185, 0.06) 0%, transparent 38%),
-    linear-gradient(170deg, #2b2537 0%, #2e273a 50%, #2c2638 100%);
+    radial-gradient(ellipse 65% 55% at 45% 50%, rgba(175, 130, 195, 0.09) 0%, transparent 55%),
+    linear-gradient(170deg, #2b2537 0%, #2c2638 100%);
 }
 
 .section-location {
   background:
-    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(201, 168, 76, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 45% at 75% 25%, rgba(170, 125, 195, 0.08) 0%, transparent 42%),
+    radial-gradient(ellipse 70% 55% at 55% 45%, rgba(170, 125, 195, 0.08) 0%, transparent 55%),
     linear-gradient(180deg, #2c2638 0%, #2e2538 100%);
 }
 
