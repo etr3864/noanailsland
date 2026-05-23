@@ -1,8 +1,8 @@
 export const WHATSAPP_URL = 'https://wa.me/972526744060?text=היי%20נועה%20💅%20אשמח%20לקבוע%20תור%20ללק%20ג׳ל'
 export const WEBHOOK_URL = import.meta.env.VITE_WEBHOOK_URL
 
-export const LOGO_URL = 'https://res.cloudinary.com/daowx6msw/image/upload/v1779565396/%D7%9C%D7%95%D7%92%D7%95_%D7%9C%D7%9C%D7%90_%D7%A8%D7%A7%D7%A2_%D7%A0%D7%95%D7%A2%D7%94_rv8zoz.png'
-export const CERTIFICATE_URL = 'https://res.cloudinary.com/daowx6msw/image/upload/v1779565400/%D7%AA%D7%A2%D7%95%D7%93%D7%94_%D7%9C%D7%9C%D7%90_%D7%A8%D7%A7%D7%A2_%D7%A0%D7%95%D7%A2%D7%94_frq2ak.png'
+export const LOGO_URL = 'https://res.cloudinary.com/daowx6msw/image/upload/q_auto,f_auto,w_120/v1779565396/%D7%9C%D7%95%D7%92%D7%95_%D7%9C%D7%9C%D7%90_%D7%A8%D7%A7%D7%A2_%D7%A0%D7%95%D7%A2%D7%94_rv8zoz.png'
+export const CERTIFICATE_URL = 'https://res.cloudinary.com/daowx6msw/image/upload/q_auto,f_auto,w_500/v1779565400/%D7%AA%D7%A2%D7%95%D7%93%D7%94_%D7%9C%D7%9C%D7%90_%D7%A8%D7%A7%D7%A2_%D7%A0%D7%95%D7%A2%D7%94_frq2ak.png'
 
 export const SOCIAL = {
   instagram: 'https://www.instagram.com/noa.turgeman5/',

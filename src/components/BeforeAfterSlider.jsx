@@ -43,7 +43,7 @@ export default function BeforeAfterSlider({ beforeSrc, afterSrc, index }) {
       {/* After (full background) */}
       <div className="absolute inset-0">
         {afterSrc ? (
-          <img src={afterSrc} alt="אחרי" className="w-full h-full object-cover" />
+          <img src={afterSrc} alt="אחרי" className="w-full h-full object-cover" loading="lazy" decoding="async" />
         ) : (
           <div className="w-full h-full bg-gold/10 flex items-center justify-center text-beige/40 text-sm">
             אחרי {index + 1}
@@ -54,7 +54,7 @@ export default function BeforeAfterSlider({ beforeSrc, afterSrc, index }) {
       {/* Before (clipped) */}
       <div className="absolute inset-0" style={{ clipPath: `inset(0 0 0 ${position}%)` }}>
         {beforeSrc ? (
-          <img src={beforeSrc} alt="לפני" className="w-full h-full object-cover" />
+          <img src={beforeSrc} alt="לפני" className="w-full h-full object-cover" loading="lazy" decoding="async" />
         ) : (
           <div className="w-full h-full bg-bg-primary flex items-center justify-center text-beige/40 text-sm border-r border-gold/20">
             לפני {index + 1}

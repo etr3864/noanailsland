@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import BeforeAfterSlider from './BeforeAfterSlider'
 import GoldDivider from './GoldDivider'
@@ -6,29 +6,29 @@ import { WorksDecor } from './SectionDecor'
 
 const BEFORE_AFTER_PAIRS = [
   {
-    before: 'https://res.cloudinary.com/daowx6msw/image/upload/v1779569228/WhatsApp_Image_2026-05-23_at_22.40.07_5_rpyb8w.jpg',
-    after: 'https://res.cloudinary.com/daowx6msw/image/upload/v1779569228/WhatsApp_Image_2026-05-23_at_22.40.07_6_g0afal.jpg',
+    before: 'https://res.cloudinary.com/daowx6msw/image/upload/q_auto,f_auto,w_400/v1779569228/WhatsApp_Image_2026-05-23_at_22.40.07_5_rpyb8w.jpg',
+    after: 'https://res.cloudinary.com/daowx6msw/image/upload/q_auto,f_auto,w_400/v1779569228/WhatsApp_Image_2026-05-23_at_22.40.07_6_g0afal.jpg',
   },
   {
-    before: 'https://res.cloudinary.com/daowx6msw/image/upload/v1779569229/WhatsApp_Image_2026-05-23_at_22.40.07_3_te8pkf.jpg',
-    after: 'https://res.cloudinary.com/daowx6msw/image/upload/v1779569229/WhatsApp_Image_2026-05-23_at_22.40.07_u3mabr.jpg',
+    before: 'https://res.cloudinary.com/daowx6msw/image/upload/q_auto,f_auto,w_400/v1779569229/WhatsApp_Image_2026-05-23_at_22.40.07_3_te8pkf.jpg',
+    after: 'https://res.cloudinary.com/daowx6msw/image/upload/q_auto,f_auto,w_400/v1779569229/WhatsApp_Image_2026-05-23_at_22.40.07_u3mabr.jpg',
   },
   {
-    before: 'https://res.cloudinary.com/daowx6msw/image/upload/v1779569229/WhatsApp_Image_2026-05-23_at_22.40.08_ermivz.jpg',
-    after: 'https://res.cloudinary.com/daowx6msw/image/upload/v1779569227/WhatsApp_Image_2026-05-23_at_22.40.07_2_lllpdy.jpg',
+    before: 'https://res.cloudinary.com/daowx6msw/image/upload/q_auto,f_auto,w_400/v1779569229/WhatsApp_Image_2026-05-23_at_22.40.08_ermivz.jpg',
+    after: 'https://res.cloudinary.com/daowx6msw/image/upload/q_auto,f_auto,w_400/v1779569227/WhatsApp_Image_2026-05-23_at_22.40.07_2_lllpdy.jpg',
   },
   {
-    before: 'https://res.cloudinary.com/daowx6msw/image/upload/v1779569228/WhatsApp_Image_2026-05-23_at_22.40.08_2_shqed8.jpg',
-    after: 'https://res.cloudinary.com/daowx6msw/image/upload/v1779569228/WhatsApp_Image_2026-05-23_at_22.40.08_1_vonfya.jpg',
+    before: 'https://res.cloudinary.com/daowx6msw/image/upload/q_auto,f_auto,w_400/v1779569228/WhatsApp_Image_2026-05-23_at_22.40.08_2_shqed8.jpg',
+    after: 'https://res.cloudinary.com/daowx6msw/image/upload/q_auto,f_auto,w_400/v1779569228/WhatsApp_Image_2026-05-23_at_22.40.08_1_vonfya.jpg',
   },
 ]
 
 const GALLERY_ITEMS = [
-  { type: 'video', src: 'https://res.cloudinary.com/daowx6msw/video/upload/v1779569232/WhatsApp_Video_2026-05-23_at_22.40.11_d1vser.mp4' },
-  { type: 'image', src: 'https://res.cloudinary.com/daowx6msw/image/upload/v1779569230/WhatsApp_Image_2026-05-23_at_22.40.11_2_uejeek.jpg' },
-  { type: 'image', src: 'https://res.cloudinary.com/daowx6msw/image/upload/v1779569229/WhatsApp_Image_2026-05-23_at_22.40.11_wpz4jt.jpg' },
-  { type: 'image', src: 'https://res.cloudinary.com/daowx6msw/image/upload/v1779569229/WhatsApp_Image_2026-05-23_at_22.40.11_1_uptef4.jpg' },
-  { type: 'image', src: 'https://res.cloudinary.com/daowx6msw/image/upload/v1779569227/WhatsApp_Image_2026-05-23_at_22.40.07_4_vjp46u.jpg' },
+  { type: 'video', src: 'https://res.cloudinary.com/daowx6msw/video/upload/q_auto,f_auto/v1779569232/WhatsApp_Video_2026-05-23_at_22.40.11_d1vser.mp4' },
+  { type: 'image', src: 'https://res.cloudinary.com/daowx6msw/image/upload/q_auto,f_auto,w_400/v1779569230/WhatsApp_Image_2026-05-23_at_22.40.11_2_uejeek.jpg' },
+  { type: 'image', src: 'https://res.cloudinary.com/daowx6msw/image/upload/q_auto,f_auto,w_400/v1779569229/WhatsApp_Image_2026-05-23_at_22.40.11_wpz4jt.jpg' },
+  { type: 'image', src: 'https://res.cloudinary.com/daowx6msw/image/upload/q_auto,f_auto,w_400/v1779569229/WhatsApp_Image_2026-05-23_at_22.40.11_1_uptef4.jpg' },
+  { type: 'image', src: 'https://res.cloudinary.com/daowx6msw/image/upload/q_auto,f_auto,w_400/v1779569227/WhatsApp_Image_2026-05-23_at_22.40.07_4_vjp46u.jpg' },
 ]
 
 const stagger = {
@@ -56,6 +56,12 @@ const scaleIn = {
 
 function GalleryLightbox({ items, activeIndex, onClose, onNext, onPrev }) {
   const item = items[activeIndex]
+  const touchStart = useRef(null)
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = '' }
+  }, [])
 
   useEffect(() => {
     const handleKey = (e) => {
@@ -67,13 +73,27 @@ function GalleryLightbox({ items, activeIndex, onClose, onNext, onPrev }) {
     return () => window.removeEventListener('keydown', handleKey)
   }, [onClose, onNext, onPrev])
 
+  const handleTouchStart = (e) => {
+    touchStart.current = e.touches[0].clientX
+  }
+
+  const handleTouchEnd = (e) => {
+    if (touchStart.current === null) return
+    const diff = touchStart.current - e.changedTouches[0].clientX
+    if (diff > 50) onNext()
+    else if (diff < -50) onPrev()
+    touchStart.current = null
+  }
+
   return (
     <motion.div
-      className="fixed inset-0 z-[80] flex items-center justify-center bg-black/85 backdrop-blur-sm"
+      className="fixed inset-0 z-[80] flex items-center justify-center bg-black/85 backdrop-blur-sm touch-none"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       {/* Close button */}
       <button
@@ -265,6 +285,7 @@ export default function Works() {
                   loop
                   playsInline
                   autoPlay
+                  preload="none"
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-black/20">
                   <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
@@ -275,7 +296,7 @@ export default function Works() {
                 </div>
               </>
             ) : (
-              <img src={item.src} alt={`תוצאה ${i + 1}`} className="w-full h-full object-cover" />
+              <img src={item.src} alt={`תוצאה ${i + 1}`} className="w-full h-full object-cover" loading="lazy" decoding="async" />
             )}
           </motion.div>
         ))}

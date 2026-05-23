@@ -1,11 +1,13 @@
+import { lazy, Suspense } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import Works from './components/Works'
-import Services from './components/Services'
-import Testimonials from './components/Testimonials'
-import Location from './components/Location'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
 import { WHATSAPP_URL } from './config/constants'
+
+const Works = lazy(() => import('./components/Works'))
+const Services = lazy(() => import('./components/Services'))
+const Testimonials = lazy(() => import('./components/Testimonials'))
+const Location = lazy(() => import('./components/Location'))
 
 const openWhatsApp = () => window.open(WHATSAPP_URL, '_blank')
 
@@ -15,10 +17,12 @@ export default function App() {
       <Header />
       <main>
         <Hero onCtaClick={openWhatsApp} />
-        <Works />
-        <Services />
-        <Testimonials />
-        <Location />
+        <Suspense fallback={null}>
+          <Works />
+          <Services />
+          <Testimonials />
+          <Location />
+        </Suspense>
       </main>
       <FloatingWhatsApp onClick={openWhatsApp} />
     </>

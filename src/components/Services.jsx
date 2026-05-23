@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { SERVICES, CERTIFICATE_URL } from '../config/constants'
 import GoldDivider from './GoldDivider'
+import AboutMe from './AboutMe'
 import { ServicesDecor } from './SectionDecor'
 
 const stagger = {
@@ -71,9 +72,11 @@ export default function Services() {
         ))}
       </motion.div>
 
+      <AboutMe />
+
       {/* Certificate */}
       <motion.div
-        className="mt-12 flex flex-col items-center gap-3"
+        className="mt-8 flex flex-col items-center gap-3"
         initial={{ opacity: 0, rotate: 2 }}
         whileInView={{ opacity: 1, rotate: 0 }}
         viewport={{ once: true, amount: 0.3 }}
