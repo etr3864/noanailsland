@@ -33,24 +33,24 @@ const GALLERY_ITEMS = [
 
 const stagger = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
+  visible: { transition: { staggerChildren: 0.12 } },
 }
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 }
 
 const scaleIn = {
-  hidden: { opacity: 0, scale: 0.95 },
+  hidden: { opacity: 0, scale: 0.97 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 }
 
@@ -203,7 +203,7 @@ export default function Works() {
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.15 }}
       >
         תראי מה יצא לי
       </motion.h2>
@@ -212,7 +212,7 @@ export default function Works() {
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.15 }}
       >
         גררי ותראי איך הגיעו ואיך יצאו
       </motion.p>
@@ -222,7 +222,7 @@ export default function Works() {
         variants={stagger}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.15 }}
       >
         {BEFORE_AFTER_PAIRS.map((pair, i) => (
           <motion.div key={i} variants={fadeUp}>
@@ -242,7 +242,7 @@ export default function Works() {
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.15 }}
       >
         עוד קצת מהעבודות שלי
       </motion.h2>
@@ -252,7 +252,7 @@ export default function Works() {
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.15 }}
       >
         <svg className="w-4 h-4 animate-bounce-x" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
           <path d="M15 19l-7-7 7-7" />
@@ -267,7 +267,7 @@ export default function Works() {
         variants={stagger}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.15 }}
       >
         {GALLERY_ITEMS.map((item, i) => (
           <motion.div

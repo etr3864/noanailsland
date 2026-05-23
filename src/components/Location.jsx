@@ -25,7 +25,7 @@ export default function Location() {
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.15 }}
       >
         איפה אני נמצאת
       </motion.h2>
@@ -34,7 +34,7 @@ export default function Location() {
         className="w-full max-w-lg mx-auto aspect-video rounded-lg overflow-hidden border border-gold/30 mb-6"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.6 }}
       >
         <iframe
@@ -54,7 +54,7 @@ export default function Location() {
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.15 }}
       >
         <p className="text-beige/80 text-sm">{ADDRESS}</p>
 

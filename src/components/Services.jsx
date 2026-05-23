@@ -10,11 +10,11 @@ const stagger = {
 }
 
 const cardUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 }
 
@@ -26,9 +26,9 @@ export default function Services() {
 
       <motion.h2
         className="text-xl font-bold text-gold text-center mb-3"
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         המחירים שלי
@@ -37,7 +37,7 @@ export default function Services() {
         className="text-beige/60 text-center text-sm mb-8"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.15 }}
         transition={{ delay: 0.2 }}
       >
         בלי הפתעות בסוף, מה שכתוב זה מה שמשלמים
@@ -48,7 +48,7 @@ export default function Services() {
         variants={stagger}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.15 }}
       >
         {SERVICES.map((service, i) => (
           <motion.div
@@ -79,7 +79,7 @@ export default function Services() {
         className="mt-8 flex flex-col items-center gap-3"
         initial={{ opacity: 0, rotate: 2 }}
         whileInView={{ opacity: 1, rotate: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         <span className="text-beige/80 text-sm font-bold">ההסמכה המקצועית שלי:</span>

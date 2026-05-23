@@ -11,13 +11,17 @@ const Location = lazy(() => import('./components/Location'))
 
 const openWhatsApp = () => window.open(WHATSAPP_URL, '_blank')
 
+function SectionPlaceholder() {
+  return <div className="min-h-screen" />
+}
+
 export default function App() {
   return (
     <>
       <Header />
       <main>
         <Hero onCtaClick={openWhatsApp} />
-        <Suspense fallback={null}>
+        <Suspense fallback={<SectionPlaceholder />}>
           <Works />
           <Services />
           <Testimonials />

@@ -5,7 +5,7 @@ function DeferredDecor() {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
-    const id = setTimeout(() => setShow(true), 2500)
+    const id = setTimeout(() => setShow(true), 1200)
     return () => clearTimeout(id)
   }, [])
 

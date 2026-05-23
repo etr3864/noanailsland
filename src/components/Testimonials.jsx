@@ -22,7 +22,7 @@ export default function Testimonials() {
           className="text-xl font-bold text-gold text-center mb-2"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           מה כותבות לי אחרי טיפול
@@ -31,7 +31,7 @@ export default function Testimonials() {
           className="text-beige/60 text-center text-sm mb-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.15 }}
           transition={{ delay: 0.2 }}
         >
           הודעות אמיתיות מלקוחות שלי

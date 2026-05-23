@@ -18,7 +18,7 @@ export default function AboutMe() {
       variants={fadeUp}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.15 }}
     >
       <motion.div
         className="w-44 h-44 rounded-full border-2 border-gold/30 mb-4 overflow-hidden"
