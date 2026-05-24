@@ -78,7 +78,7 @@ export default function Location() {
           נווטי בוויז
         </a>
 
-        <div className="flex items-center justify-center gap-4 pt-4">
+        <div className="flex items-center justify-center gap-4 pt-4 pb-14">
           <a
             href={SOCIAL.instagram}
             target="_blank"
