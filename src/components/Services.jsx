@@ -39,7 +39,7 @@ export default function Services() {
                 : 'border border-gold/15 hover:border-gold/30'
             }`}
           >
-            <span className={`text-sm ${service.highlighted ? 'font-bold text-white' : 'text-beige/80'}`}>
+            <span className={`text-sm ${service.highlighted ? 'font-bold text-beige' : 'text-beige/80'}`}>
               {service.name}
             </span>
             <span className={`font-bold whitespace-nowrap mr-3 ${
