@@ -96,18 +96,110 @@ function Dots({ className, delay = 0, count = 5 }) {
   )
 }
 
+function Lipstick({ className, delay = 0 }) {
+  return (
+    <motion.svg viewBox="0 0 30 80" className={className} {...fade(delay)}>
+      <path d="M10 4 L20 4 L22 22 L8 22 Z" fill="currentColor" />
+      <rect x="6" y="22" width="18" height="6" rx="1" fill="currentColor" opacity="0.4" />
+      <rect x="8" y="28" width="14" height="44" rx="2" fill="none" stroke="currentColor" strokeWidth="0.8" />
+      <line x1="10" y1="40" x2="20" y2="40" stroke="currentColor" strokeWidth="0.4" />
+    </motion.svg>
+  )
+}
+
+function Perfume({ className, delay = 0 }) {
+  return (
+    <motion.svg viewBox="0 0 50 80" className={className} {...fade(delay)}>
+      <rect x="20" y="4" width="10" height="10" rx="1" fill="currentColor" opacity="0.6" />
+      <rect x="22" y="14" width="6" height="6" fill="currentColor" opacity="0.4" />
+      <path d="M14 20 L36 20 L40 28 L40 70 Q40 76 34 76 L16 76 Q10 76 10 70 L10 28 Z" fill="none" stroke="currentColor" strokeWidth="1" />
+      <ellipse cx="25" cy="48" rx="8" ry="6" fill="currentColor" opacity="0.25" />
+    </motion.svg>
+  )
+}
+
+function MakeupBrush({ className, delay = 0 }) {
+  return (
+    <motion.svg viewBox="0 0 20 90" className={className} {...fade(delay)}>
+      <path d="M10 2 Q4 14 6 26 L14 26 Q16 14 10 2z" fill="currentColor" opacity="0.55" />
+      <rect x="6" y="26" width="8" height="6" fill="currentColor" />
+      <rect x="6" y="32" width="8" height="50" rx="1" fill="none" stroke="currentColor" strokeWidth="0.8" />
+      <circle cx="10" cy="86" r="2" fill="currentColor" opacity="0.6" />
+    </motion.svg>
+  )
+}
+
+function Lashes({ className, delay = 0 }) {
+  return (
+    <motion.svg viewBox="0 0 80 40" className={className} {...fade(delay)}>
+      <path d="M5 28 Q40 8 75 28" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+      <line x1="15" y1="22" x2="13" y2="10" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+      <line x1="25" y1="17" x2="24" y2="4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+      <line x1="35" y1="14" x2="35" y2="0" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+      <line x1="45" y1="14" x2="45" y2="0" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+      <line x1="55" y1="17" x2="56" y2="4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+      <line x1="65" y1="22" x2="67" y2="10" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+    </motion.svg>
+  )
+}
+
+function Compact({ className, delay = 0 }) {
+  return (
+    <motion.svg viewBox="0 0 70 70" className={className} {...fade(delay)}>
+      <circle cx="35" cy="35" r="30" fill="none" stroke="currentColor" strokeWidth="1" />
+      <circle cx="35" cy="35" r="22" fill="none" stroke="currentColor" strokeWidth="0.5" />
+      <circle cx="35" cy="35" r="14" fill="currentColor" opacity="0.3" />
+      <circle cx="35" cy="6" r="3" fill="currentColor" opacity="0.6" />
+    </motion.svg>
+  )
+}
+
+function Pearls({ className, delay = 0 }) {
+  return (
+    <motion.svg viewBox="0 0 140 30" className={className} preserveAspectRatio="none" {...fade(delay)}>
+      <path d="M5 15 Q35 5 70 15 T135 15" fill="none" stroke="currentColor" strokeWidth="0.4" />
+      {[10, 25, 42, 60, 78, 96, 113, 128].map((cx, i) => (
+        <circle key={i} cx={cx} cy={15 + (i % 2 === 0 ? 0 : 1)} r="3" fill="currentColor" opacity={i % 2 === 0 ? 0.6 : 0.4} />
+      ))}
+    </motion.svg>
+  )
+}
+
+function Heart({ className, delay = 0 }) {
+  return (
+    <motion.svg viewBox="0 0 40 36" className={className} {...fade(delay)}>
+      <path d="M20 32 L6 18 Q-2 10 6 4 Q14 0 20 8 Q26 0 34 4 Q42 10 34 18 Z" fill="none" stroke="currentColor" strokeWidth="1.2" />
+    </motion.svg>
+  )
+}
+
+function ButterflyAbstract({ className, delay = 0 }) {
+  return (
+    <motion.svg viewBox="0 0 60 50" className={className} {...fade(delay)}>
+      <path d="M30 10 Q15 0 6 10 Q0 20 8 28 Q18 32 30 22z" fill="currentColor" opacity="0.45" />
+      <path d="M30 10 Q45 0 54 10 Q60 20 52 28 Q42 32 30 22z" fill="currentColor" opacity="0.45" />
+      <path d="M30 22 Q12 30 8 42 Q14 46 22 42 Q28 36 30 28z" fill="currentColor" opacity="0.35" />
+      <path d="M30 22 Q48 30 52 42 Q46 46 38 42 Q32 36 30 28z" fill="currentColor" opacity="0.35" />
+      <line x1="30" y1="8" x2="30" y2="44" stroke="currentColor" strokeWidth="0.8" />
+    </motion.svg>
+  )
+}
+
 export function HeroDecor() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <Petal className="absolute top-24 left-[6%] w-8 text-pink-300/20 rotate-[-20deg]" delay={0.3} />
-      <Leaf className="absolute top-[45%] right-[4%] w-10 text-purple-300/15 rotate-[15deg]" delay={0.5} />
-      <Mirror className="absolute bottom-32 left-[10%] w-12 text-gold/10" delay={0.7} />
-      <Drop className="absolute top-32 right-[18%] w-5 text-pink-200/25" delay={0.4} />
-      <Sparkle className="absolute top-20 right-[25%] w-5 text-gold/15" delay={0.2} />
-      <Sparkle className="absolute bottom-40 left-[20%] w-4 text-purple-200/20" delay={0.6} />
-      <BrushStroke className="absolute top-[60%] left-0 w-48 h-8 text-pink-200/15" delay={0.8} />
-      <Flower className="absolute bottom-20 right-[8%] w-10 text-purple-200/12" delay={0.9} />
-      <Ring className="absolute top-[30%] left-[3%] w-20 text-gold/8" delay={0.6} />
+      <Lipstick className="absolute top-28 left-[6%] w-7 text-pink-400/25 rotate-[-15deg]" delay={0.3} />
+      <Lashes className="absolute top-32 right-[8%] w-14 text-purple-400/20" delay={0.4} />
+      <Perfume className="absolute bottom-32 left-[8%] w-10 text-pink-300/20 rotate-[8deg]" delay={0.7} />
+      <Petal className="absolute top-[50%] left-[18%] w-8 text-pink-300/22 rotate-[-20deg]" delay={0.5} />
+      <Drop className="absolute top-[60%] right-[15%] w-6 text-purple-300/25" delay={0.6} />
+      <Sparkle className="absolute top-20 right-[28%] w-5 text-gold/22" delay={0.2} />
+      <Sparkle className="absolute bottom-44 right-[20%] w-4 text-pink-300/25" delay={0.6} />
+      <Heart className="absolute top-[42%] right-[6%] w-7 text-pink-400/18 rotate-[15deg]" delay={0.5} />
+      <Pearls className="absolute top-[68%] left-0 w-56 text-purple-300/15" delay={0.8} />
+      <Flower className="absolute bottom-20 right-[5%] w-10 text-pink-300/18" delay={0.9} />
+      <Ring className="absolute top-[28%] left-[3%] w-20 text-gold/12" delay={0.6} />
+      <BrushStroke className="absolute top-[80%] right-0 w-40 h-8 text-purple-300/15" delay={0.9} />
     </div>
   )
 }
@@ -115,14 +207,18 @@ export function HeroDecor() {
 export function WorksDecor() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <NailAlmond className="absolute top-12 right-[5%] w-7 text-pink-300/15 rotate-[12deg]" />
-      <Drop className="absolute top-[35%] left-[4%] w-5 text-purple-200/20 rotate-[-10deg]" delay={0.2} />
-      <Petal className="absolute bottom-20 right-[8%] w-8 text-pink-200/18 rotate-[25deg]" delay={0.4} />
-      <BrushStroke className="absolute top-[25%] right-0 w-40 h-8 text-purple-200/10" delay={0.3} />
-      <Sparkle className="absolute top-20 left-[12%] w-5 text-gold/12" delay={0.3} />
-      <Leaf className="absolute bottom-32 left-[6%] w-9 text-pink-300/12 rotate-[-15deg]" delay={0.5} />
-      <Dots className="absolute bottom-12 right-[15%] w-24 text-gold/10" delay={0.4} />
-      <Ring className="absolute top-[65%] left-[2%] w-14 text-purple-200/10" delay={0.6} />
+      <NailAlmond className="absolute top-12 right-[5%] w-7 text-pink-400/18 rotate-[12deg]" />
+      <MakeupBrush className="absolute top-20 left-[4%] w-6 text-purple-400/22 rotate-[-12deg]" delay={0.3} />
+      <Drop className="absolute top-[30%] left-[14%] w-5 text-pink-300/25 rotate-[-10deg]" delay={0.2} />
+      <Lashes className="absolute top-[42%] right-[6%] w-12 text-pink-400/18" delay={0.4} />
+      <Petal className="absolute bottom-24 right-[10%] w-8 text-purple-300/22 rotate-[25deg]" delay={0.4} />
+      <Compact className="absolute top-[55%] left-[5%] w-12 text-pink-300/15" delay={0.5} />
+      <BrushStroke className="absolute top-[20%] right-0 w-40 h-8 text-purple-300/14" delay={0.3} />
+      <Sparkle className="absolute top-28 left-[28%] w-5 text-gold/18" delay={0.3} />
+      <Heart className="absolute bottom-40 left-[8%] w-6 text-pink-400/15 rotate-[-12deg]" delay={0.6} />
+      <Dots className="absolute bottom-12 right-[18%] w-24 text-gold/14" delay={0.4} />
+      <Ring className="absolute top-[70%] right-[3%] w-14 text-purple-300/12" delay={0.6} />
+      <Pearls className="absolute bottom-[35%] left-0 w-40 text-pink-300/14" delay={0.7} />
     </div>
   )
 }
@@ -130,14 +226,20 @@ export function WorksDecor() {
 export function ServicesDecor() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <Mirror className="absolute top-16 left-[4%] w-14 text-pink-200/15 rotate-[-8deg]" delay={0.2} />
-      <Petal className="absolute top-[40%] right-[3%] w-7 text-purple-300/15 rotate-[20deg]" delay={0.3} />
-      <Drop className="absolute bottom-24 left-[8%] w-5 text-pink-300/18" delay={0.5} />
-      <Flower className="absolute top-12 right-[12%] w-9 text-purple-200/10" delay={0.4} />
-      <Sparkle className="absolute bottom-16 right-[6%] w-5 text-gold/12" delay={0.6} />
-      <BrushStroke className="absolute bottom-[35%] left-0 w-full h-10 text-pink-100/12" delay={0.5} />
-      <Leaf className="absolute top-[60%] left-[3%] w-8 text-purple-200/12 rotate-[10deg]" delay={0.7} />
-      <NailAlmond className="absolute bottom-40 right-[15%] w-6 text-pink-200/12 rotate-[-12deg]" delay={0.4} />
+      <Mirror className="absolute top-16 left-[4%] w-14 text-pink-300/20 rotate-[-8deg]" delay={0.2} />
+      <Lipstick className="absolute top-[28%] right-[5%] w-7 text-purple-400/22 rotate-[18deg]" delay={0.3} />
+      <Perfume className="absolute bottom-28 right-[8%] w-9 text-pink-400/18 rotate-[-6deg]" delay={0.5} />
+      <ButterflyAbstract className="absolute top-[45%] right-[12%] w-12 text-purple-300/18" delay={0.4} />
+      <Petal className="absolute top-[55%] left-[6%] w-8 text-pink-300/22 rotate-[20deg]" delay={0.3} />
+      <Drop className="absolute bottom-32 left-[12%] w-5 text-pink-400/20" delay={0.5} />
+      <Lashes className="absolute top-12 right-[30%] w-12 text-purple-400/15" delay={0.4} />
+      <Sparkle className="absolute top-[35%] left-[20%] w-5 text-gold/20" delay={0.4} />
+      <Sparkle className="absolute bottom-20 right-[18%] w-4 text-pink-400/22" delay={0.6} />
+      <BrushStroke className="absolute bottom-[40%] left-0 w-full h-10 text-purple-300/12" delay={0.5} />
+      <Flower className="absolute bottom-44 left-[5%] w-9 text-pink-300/15" delay={0.7} />
+      <Pearls className="absolute top-[78%] right-0 w-44 text-purple-300/14" delay={0.6} />
+      <Heart className="absolute top-24 left-[28%] w-5 text-pink-400/18 rotate-[-15deg]" delay={0.5} />
+      <Compact className="absolute bottom-12 left-[20%] w-10 text-purple-300/13" delay={0.7} />
     </div>
   )
 }
@@ -145,14 +247,18 @@ export function ServicesDecor() {
 export function TestimonialsDecor() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <Petal className="absolute top-10 left-[8%] w-7 text-pink-300/18 rotate-[30deg]" />
-      <Drop className="absolute top-[50%] right-[5%] w-5 text-purple-200/20" delay={0.3} />
-      <Flower className="absolute bottom-16 left-[12%] w-10 text-pink-200/10" delay={0.5} />
-      <Sparkle className="absolute top-16 right-[15%] w-5 text-gold/12" delay={0.2} />
-      <BrushStroke className="absolute top-[70%] left-0 w-56 h-8 text-purple-200/10" delay={0.4} />
-      <Ring className="absolute top-[30%] left-[3%] w-16 text-pink-200/10" delay={0.5} />
-      <Leaf className="absolute bottom-24 right-[10%] w-8 text-purple-300/12 rotate-[-20deg]" delay={0.6} />
-      <NailAlmond className="absolute top-8 right-[3%] w-5 text-pink-200/15 rotate-[8deg]" delay={0.3} />
+      <Petal className="absolute top-10 left-[8%] w-7 text-pink-400/22 rotate-[30deg]" />
+      <Heart className="absolute top-[18%] right-[12%] w-7 text-pink-400/22 rotate-[10deg]" delay={0.2} />
+      <Lashes className="absolute top-[32%] left-[5%] w-12 text-purple-400/18" delay={0.3} />
+      <Drop className="absolute top-[55%] right-[6%] w-5 text-pink-300/25" delay={0.3} />
+      <ButterflyAbstract className="absolute bottom-20 right-[15%] w-12 text-pink-300/18" delay={0.5} />
+      <MakeupBrush className="absolute top-12 right-[28%] w-6 text-purple-300/20 rotate-[15deg]" delay={0.4} />
+      <Sparkle className="absolute top-20 right-[5%] w-5 text-gold/18" delay={0.2} />
+      <Sparkle className="absolute bottom-32 left-[18%] w-4 text-pink-400/20" delay={0.4} />
+      <BrushStroke className="absolute top-[70%] left-0 w-56 h-8 text-purple-300/14" delay={0.4} />
+      <Pearls className="absolute bottom-12 left-0 w-44 text-pink-300/14" delay={0.6} />
+      <Ring className="absolute top-[35%] left-[3%] w-16 text-purple-300/12" delay={0.5} />
+      <Flower className="absolute bottom-[40%] right-[5%] w-9 text-pink-300/14" delay={0.6} />
     </div>
   )
 }
@@ -160,14 +266,18 @@ export function TestimonialsDecor() {
 export function LocationDecor() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <Mirror className="absolute top-10 right-[6%] w-12 text-purple-200/12 rotate-[5deg]" delay={0.2} />
-      <Petal className="absolute bottom-20 left-[5%] w-8 text-pink-300/15 rotate-[-15deg]" delay={0.4} />
-      <Drop className="absolute top-[40%] left-[8%] w-5 text-pink-200/20" delay={0.3} />
-      <Sparkle className="absolute top-[55%] right-[10%] w-5 text-gold/12" delay={0.5} />
-      <Flower className="absolute top-20 left-[15%] w-8 text-purple-200/10" delay={0.6} />
-      <BrushStroke className="absolute top-[20%] right-0 w-44 h-8 text-pink-200/12" delay={0.3} />
-      <Dots className="absolute bottom-12 right-[12%] w-20 text-gold/10" delay={0.4} count={4} />
-      <Leaf className="absolute bottom-36 right-[3%] w-9 text-purple-300/10 rotate-[12deg]" delay={0.7} />
+      <Mirror className="absolute top-10 right-[6%] w-12 text-purple-300/18 rotate-[5deg]" delay={0.2} />
+      <Lipstick className="absolute top-[28%] left-[5%] w-7 text-pink-400/22 rotate-[-12deg]" delay={0.3} />
+      <Petal className="absolute bottom-32 right-[8%] w-8 text-pink-400/20 rotate-[-15deg]" delay={0.4} />
+      <Lashes className="absolute top-[52%] left-[8%] w-12 text-purple-400/18" delay={0.4} />
+      <Drop className="absolute top-[42%] right-[18%] w-5 text-pink-300/25" delay={0.3} />
+      <Heart className="absolute top-[68%] right-[12%] w-6 text-pink-400/20 rotate-[12deg]" delay={0.5} />
+      <Sparkle className="absolute top-20 right-[22%] w-5 text-gold/20" delay={0.5} />
+      <Flower className="absolute top-32 left-[20%] w-8 text-purple-300/15" delay={0.6} />
+      <BrushStroke className="absolute top-[20%] right-0 w-44 h-8 text-pink-300/15" delay={0.3} />
+      <Pearls className="absolute bottom-[35%] left-0 w-44 text-purple-300/14" delay={0.6} />
+      <Compact className="absolute bottom-44 left-[5%] w-10 text-pink-300/14" delay={0.5} />
+      <Dots className="absolute bottom-16 right-[15%] w-20 text-gold/14" delay={0.4} count={4} />
     </div>
   )
 }
