@@ -16,7 +16,7 @@ const fadeUp = {
 
 export default function Location() {
   return (
-    <section id="location" className="relative px-5 py-12 section-location bg-dots">
+    <section id="location" className="relative px-5 py-12 section-location grain contour overflow-hidden">
       <LocationDecor />
       <GoldDivider />
 

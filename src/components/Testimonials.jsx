@@ -9,7 +9,7 @@ export default function Testimonials() {
   const scrollRef = useRef(null)
 
   return (
-    <section id="testimonials" className="relative py-12 section-testimonials">
+    <section id="testimonials" className="relative py-12 section-testimonials grain overflow-hidden">
       <TestimonialsDecor />
       <div className="px-5">
         <GoldDivider />

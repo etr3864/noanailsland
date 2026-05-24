@@ -44,6 +44,29 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1' fill='%23c4a0d4' opacity='0.12'/%3E%3C/svg%3E");
 }
 
+/* Grain noise overlay — adds film texture (editorial / fashion magazine vibe) */
+.grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.7  0 0 0 0 0.5  0 0 0 0 0.7  0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Soft wavy contour lines — editorial design pattern */
+.contour::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23b890c8' stroke-width='0.4' opacity='0.18'%3E%3Cpath d='M-50 200 Q 200 120 400 220 T 850 180'/%3E%3Cpath d='M-50 280 Q 200 200 400 300 T 850 260'/%3E%3Cpath d='M-50 360 Q 200 280 400 380 T 850 340'/%3E%3Cpath d='M-50 440 Q 200 360 400 460 T 850 420'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
 /* Glass morphism utilities */
 .glass {
   background: rgba(255, 255, 255, 0.55);
@@ -69,45 +92,50 @@ body {
   box-shadow: 0 4px 20px rgba(201, 168, 76, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-/* Section backgrounds — pastel blobs, colorful, organic */
+/* Section backgrounds — rich mesh gradients, editorial feel */
 .section-hero {
   background:
-    radial-gradient(circle 280px at 80% 25%, rgba(240, 190, 220, 0.40) 0%, transparent 70%),
-    radial-gradient(circle 200px at 15% 75%, rgba(190, 200, 240, 0.30) 0%, transparent 70%),
-    radial-gradient(circle 150px at 50% 90%, rgba(255, 220, 200, 0.25) 0%, transparent 60%),
-    linear-gradient(170deg, #fef9f6 0%, #f9f0f5 100%);
+    radial-gradient(circle 380px at 85% 15%, rgba(240, 170, 210, 0.55) 0%, transparent 65%),
+    radial-gradient(circle 320px at 10% 80%, rgba(180, 195, 245, 0.45) 0%, transparent 65%),
+    radial-gradient(circle 220px at 60% 95%, rgba(255, 210, 180, 0.40) 0%, transparent 60%),
+    radial-gradient(circle 180px at 30% 25%, rgba(220, 200, 255, 0.35) 0%, transparent 60%),
+    linear-gradient(165deg, #fff5ef 0%, #fae6f0 50%, #f0e4f5 100%);
 }
 
 .section-works {
   background:
-    radial-gradient(circle 250px at 20% 30%, rgba(210, 180, 240, 0.35) 0%, transparent 70%),
-    radial-gradient(circle 200px at 85% 70%, rgba(250, 200, 210, 0.30) 0%, transparent 65%),
-    radial-gradient(circle 120px at 60% 15%, rgba(180, 220, 250, 0.20) 0%, transparent 60%),
-    linear-gradient(175deg, #f9f0f5 0%, #f3ecf8 100%);
+    radial-gradient(circle 360px at 15% 25%, rgba(200, 170, 245, 0.50) 0%, transparent 65%),
+    radial-gradient(circle 300px at 90% 75%, rgba(255, 180, 200, 0.45) 0%, transparent 65%),
+    radial-gradient(circle 200px at 50% 5%, rgba(170, 215, 250, 0.30) 0%, transparent 60%),
+    radial-gradient(circle 180px at 70% 50%, rgba(250, 220, 200, 0.30) 0%, transparent 60%),
+    linear-gradient(175deg, #faedf3 0%, #efe2f5 50%, #f4ecf8 100%);
 }
 
 .section-services {
   background:
-    radial-gradient(circle 260px at 70% 40%, rgba(220, 190, 250, 0.35) 0%, transparent 65%),
-    radial-gradient(circle 180px at 10% 60%, rgba(255, 210, 200, 0.28) 0%, transparent 60%),
-    radial-gradient(circle 140px at 40% 85%, rgba(200, 230, 250, 0.20) 0%, transparent 55%),
-    linear-gradient(180deg, #f3ecf8 0%, #faf2f5 100%);
+    radial-gradient(circle 380px at 75% 30%, rgba(215, 175, 250, 0.50) 0%, transparent 65%),
+    radial-gradient(circle 280px at 5% 65%, rgba(255, 195, 180, 0.45) 0%, transparent 60%),
+    radial-gradient(circle 220px at 45% 90%, rgba(180, 220, 250, 0.35) 0%, transparent 60%),
+    radial-gradient(circle 160px at 90% 95%, rgba(255, 205, 230, 0.30) 0%, transparent 55%),
+    linear-gradient(180deg, #f0e4f5 0%, #faedf2 50%, #f5e8f0 100%);
 }
 
 .section-testimonials {
   background:
-    radial-gradient(circle 220px at 35% 45%, rgba(230, 195, 240, 0.32) 0%, transparent 65%),
-    radial-gradient(circle 180px at 80% 25%, rgba(190, 220, 245, 0.25) 0%, transparent 60%),
-    radial-gradient(circle 150px at 65% 80%, rgba(250, 210, 220, 0.22) 0%, transparent 55%),
-    linear-gradient(170deg, #faf2f5 0%, #f4edf7 100%);
+    radial-gradient(circle 320px at 30% 40%, rgba(230, 180, 240, 0.48) 0%, transparent 65%),
+    radial-gradient(circle 260px at 85% 20%, rgba(175, 215, 245, 0.40) 0%, transparent 60%),
+    radial-gradient(circle 220px at 65% 85%, rgba(255, 195, 215, 0.38) 0%, transparent 60%),
+    radial-gradient(circle 180px at 10% 90%, rgba(220, 195, 255, 0.32) 0%, transparent 55%),
+    linear-gradient(170deg, #f5e8f0 0%, #ede0f5 50%, #f3e8f5 100%);
 }
 
 .section-location {
   background:
-    radial-gradient(circle 240px at 50% 50%, rgba(215, 185, 245, 0.30) 0%, transparent 65%),
-    radial-gradient(circle 180px at 85% 20%, rgba(250, 200, 215, 0.25) 0%, transparent 60%),
-    radial-gradient(circle 130px at 15% 80%, rgba(200, 225, 250, 0.20) 0%, transparent 55%),
-    linear-gradient(180deg, #f4edf7 0%, #fef9f6 100%);
+    radial-gradient(circle 340px at 55% 45%, rgba(210, 170, 245, 0.48) 0%, transparent 65%),
+    radial-gradient(circle 260px at 90% 15%, rgba(255, 185, 210, 0.42) 0%, transparent 60%),
+    radial-gradient(circle 200px at 10% 75%, rgba(180, 220, 250, 0.35) 0%, transparent 55%),
+    radial-gradient(circle 160px at 75% 95%, rgba(255, 215, 195, 0.30) 0%, transparent 55%),
+    linear-gradient(180deg, #f3e8f5 0%, #faecf0 50%, #fff5ef 100%);
 }
 
 /* Hero entrance animations — pure CSS, no JS dependency */

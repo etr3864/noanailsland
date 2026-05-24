@@ -6,7 +6,7 @@ import { ServicesDecor } from './SectionDecor'
 
 export default function Services() {
   return (
-    <section id="services" className="relative px-5 py-12 section-services bg-mesh">
+    <section id="services" className="relative px-5 py-12 section-services grain contour overflow-hidden">
       <ServicesDecor />
       <GoldDivider />
 

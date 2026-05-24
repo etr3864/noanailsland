@@ -180,7 +180,7 @@ export default function Works() {
   const prevItem = () => setLightboxIndex((i) => (i - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length)
 
   return (
-    <section id="works" className="relative px-5 py-12 section-works bg-dots">
+    <section id="works" className="relative px-5 py-12 section-works grain overflow-hidden">
       <WorksDecor />
       <GoldDivider />
 
