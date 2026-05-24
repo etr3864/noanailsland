@@ -1,39 +1,10 @@
-import { useState, useEffect } from 'react'
+import { HeroDecor } from './SectionDecor'
 import { ADDRESS, HOURS, WAZE_URL } from '../config/constants'
-
-function DeferredDecor() {
-  const [show, setShow] = useState(false)
-
-  useEffect(() => {
-    const id = setTimeout(() => setShow(true), 1200)
-    return () => clearTimeout(id)
-  }, [])
-
-  if (!show) return null
-
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <svg viewBox="0 0 40 70" className="absolute top-20 left-[8%] w-8 text-gold/[0.07] rotate-[-15deg] opacity-0 animate-[hero-fade_1s_ease_forwards]">
-        <path d="M20 2c8 0 15 8 15 22 0 18-7 40-15 44C12 64 5 42 5 24 5 10 12 2 20 2z" fill="currentColor" />
-      </svg>
-      <svg viewBox="0 0 30 80" className="absolute top-32 right-[5%] w-5 text-beige/[0.06] rotate-[20deg] opacity-0 animate-[hero-fade_1s_ease_0.2s_forwards]">
-        <path d="M15 2c6 0 12 6 12 18 0 12-3 28-7 40-2 6-4 14-5 18-1-4-3-12-5-18C6 48 3 32 3 20 3 8 9 2 15 2z" fill="currentColor" />
-      </svg>
-      <svg viewBox="0 0 80 80" className="absolute bottom-28 left-[12%] w-24 text-gold/[0.06] opacity-0 animate-[hero-fade_1s_ease_0.4s_forwards]">
-        <circle cx="40" cy="40" r="30" fill="none" stroke="currentColor" strokeWidth="0.5" />
-        <circle cx="40" cy="40" r="20" fill="none" stroke="currentColor" strokeWidth="0.3" />
-      </svg>
-      <svg viewBox="0 0 40 40" className="absolute top-28 right-[20%] w-6 text-gold/[0.09] opacity-0 animate-[hero-fade_0.8s_ease_0.3s_forwards]">
-        <path d="M20 4 L22 16 L34 18 L22 20 L20 34 L18 20 L4 18 L18 16 Z" fill="currentColor" />
-      </svg>
-    </div>
-  )
-}
 
 export default function Hero({ onCtaClick }) {
   return (
     <section id="hero" className="relative min-h-screen px-5 pt-24 pb-10 flex flex-col overflow-hidden section-hero grain contour">
-      <DeferredDecor />
+      <HeroDecor />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%)' }} />
 
       <span className="absolute top-[5px] right-3 text-[9px] text-beige/30">בס״ד</span>
