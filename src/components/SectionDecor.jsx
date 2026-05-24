@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 
-const fade = (delay) => ({
+const fade = () => ({
   initial: { opacity: 0 },
   whileInView: { opacity: 1 },
   viewport: { once: true },
-  transition: { duration: 1.2, delay },
+  transition: { duration: 0.4 },
 })
 
 function Petal({ className, delay = 0 }) {
