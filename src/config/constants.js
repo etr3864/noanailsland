@@ -9,7 +9,7 @@ export const SOCIAL = {
   facebook: 'https://www.facebook.com/omer.albilia.71',
 }
 
-export const ADDRESS = 'שדרות ירושלים 64, באר שבע, קומה 3 דירה 12'
+export const ADDRESS = 'שדרות ירושלים 64, באר שבע'
 export const HOURS = '9:00 עד 20:00'
 export const WAZE_URL = 'https://waze.com/ul?q=שדרות%20ירושלים%2064%20באר%20שבע'
 

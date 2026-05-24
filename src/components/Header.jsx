@@ -52,7 +52,7 @@ export default function Header() {
     <header
       className={`anim-header fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
         scrolled
-          ? 'bg-[#2b2533]/95 border-b border-gold/10 shadow-sm'
+          ? 'bg-white/90 border-b border-gold/10 shadow-sm'
           : 'bg-transparent'
       }`}
     >

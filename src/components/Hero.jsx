@@ -36,7 +36,7 @@ export default function Hero({ onCtaClick }) {
       <DeferredDecor />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%)' }} />
 
-      <span className="absolute top-[5px] right-3 text-[9px] text-white/30">בס״ד</span>
+      <span className="absolute top-[5px] right-3 text-[9px] text-beige/30">בס״ד</span>
 
       <div className="flex-1 flex flex-col items-center justify-center mt-6">
         <h1 className="anim-hero-title text-2xl md:text-3xl font-bold text-center text-beige leading-snug mb-2">
@@ -44,8 +44,8 @@ export default function Hero({ onCtaClick }) {
           <span className="text-gold">תראי את זה</span>
         </h1>
 
-        <div className="anim-hero-video w-full max-w-lg aspect-video rounded-lg border border-gold/30 bg-bg-primary flex items-center justify-center mb-8 overflow-hidden">
-          <div className="text-beige/40 text-sm text-center p-4">
+        <div className="anim-hero-video w-full max-w-lg aspect-video rounded-lg border border-gold/30 bg-white/50 flex items-center justify-center mb-8 overflow-hidden">
+          <div className="text-beige/30 text-sm text-center p-4">
             <svg className="w-12 h-12 mx-auto mb-2 opacity-40" fill="currentColor" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
             </svg>
@@ -55,7 +55,7 @@ export default function Hero({ onCtaClick }) {
 
         <button
           onClick={onCtaClick}
-          className="anim-hero-cta w-full max-w-sm py-4 rounded-full bg-gold text-bg-primary font-bold text-lg cursor-pointer hover:scale-[1.03] active:scale-[0.97] transition-transform mb-5"
+          className="anim-hero-cta w-full max-w-sm py-4 rounded-full bg-gold text-white font-bold text-lg cursor-pointer hover:scale-[1.03] active:scale-[0.97] transition-transform mb-5"
         >
           בואי נקבע לך תור
         </button>

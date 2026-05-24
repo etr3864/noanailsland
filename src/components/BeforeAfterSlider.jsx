@@ -68,15 +68,15 @@ export default function BeforeAfterSlider({ beforeSrc, afterSrc, index }) {
         style={{ left: `${position}%` }}
       >
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-gold flex items-center justify-center shadow-lg">
-          <svg className="w-4 h-4 text-bg-primary" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
             <path d="M8 5l-5 7 5 7M16 5l5 7-5 7" />
           </svg>
         </div>
       </div>
 
       {/* Labels */}
-      <span className="absolute top-2 right-2 text-xs bg-bg-primary/70 text-beige px-2 py-0.5 rounded">לפני</span>
-      <span className="absolute top-2 left-2 text-xs bg-bg-primary/70 text-beige px-2 py-0.5 rounded">אחרי</span>
+      <span className="absolute top-2 right-2 text-xs bg-white/70 text-beige px-2 py-0.5 rounded">לפני</span>
+      <span className="absolute top-2 left-2 text-xs bg-white/70 text-beige px-2 py-0.5 rounded">אחרי</span>
     </div>
   )
 }

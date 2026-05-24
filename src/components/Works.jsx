@@ -191,7 +191,7 @@ export default function Works() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
       >
-        תראי מה יצא לי
+        תוצאות
       </motion.h2>
       <motion.p
         className="text-beige/60 text-center text-sm mb-6"

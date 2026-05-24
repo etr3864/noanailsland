@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-primary: #2a2d35;
-  --color-bg-section: #252830;
+  --color-bg-primary: #fdf8f4;
+  --color-bg-section: #faf5f0;
   --color-gold: #c9a84c;
-  --color-beige: #f5e6d0;
+  --color-beige: #3d3535;
   --color-whatsapp: #25D366;
   --color-white: #ffffff;
   --color-instagram: #E1306C;
@@ -21,7 +21,7 @@ html {
 
 body {
   font-family: var(--font-heebo);
-  background-color: #2b2533;
+  background-color: var(--color-bg-primary);
   color: var(--color-beige);
   direction: rtl;
   margin: 0;
@@ -31,7 +31,7 @@ body {
 
 ::selection {
   background-color: var(--color-gold);
-  color: var(--color-bg-primary);
+  color: #fff;
 }
 
 /* Subtle gold mesh grid overlay */
@@ -44,35 +44,35 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1' fill='%23c9a84c' opacity='0.08'/%3E%3C/svg%3E");
 }
 
-/* Section backgrounds — feminine lilac/rose, elegant nail-salon feel */
+/* Section backgrounds — pastel, light, feminine */
 .section-hero {
   background:
-    radial-gradient(ellipse 80% 60% at 60% 50%, rgba(180, 130, 200, 0.10) 0%, transparent 60%),
-    linear-gradient(170deg, #2e2538 0%, #282234 100%);
+    radial-gradient(ellipse 80% 60% at 60% 50%, rgba(220, 190, 230, 0.20) 0%, transparent 60%),
+    linear-gradient(170deg, #fdf8f4 0%, #faf2ee 100%);
 }
 
 .section-works {
   background:
-    radial-gradient(ellipse 70% 60% at 40% 50%, rgba(170, 120, 190, 0.09) 0%, transparent 55%),
-    linear-gradient(175deg, #282234 0%, #2a2436 100%);
+    radial-gradient(ellipse 70% 60% at 40% 50%, rgba(200, 170, 220, 0.15) 0%, transparent 55%),
+    linear-gradient(175deg, #faf2ee 0%, #f8eff0 100%);
 }
 
 .section-services {
   background:
-    radial-gradient(ellipse 70% 55% at 50% 45%, rgba(160, 110, 180, 0.09) 0%, transparent 55%),
-    linear-gradient(180deg, #2a2436 0%, #2b2537 100%);
+    radial-gradient(ellipse 70% 55% at 50% 45%, rgba(210, 180, 225, 0.15) 0%, transparent 55%),
+    linear-gradient(180deg, #f8eff0 0%, #faf3f5 100%);
 }
 
 .section-testimonials {
   background:
-    radial-gradient(ellipse 65% 55% at 45% 50%, rgba(175, 130, 195, 0.09) 0%, transparent 55%),
-    linear-gradient(170deg, #2b2537 0%, #2c2638 100%);
+    radial-gradient(ellipse 65% 55% at 45% 50%, rgba(195, 165, 215, 0.15) 0%, transparent 55%),
+    linear-gradient(170deg, #faf3f5 0%, #f8f0f2 100%);
 }
 
 .section-location {
   background:
-    radial-gradient(ellipse 70% 55% at 55% 45%, rgba(170, 125, 195, 0.08) 0%, transparent 55%),
-    linear-gradient(180deg, #2c2638 0%, #2e2538 100%);
+    radial-gradient(ellipse 70% 55% at 55% 45%, rgba(200, 175, 220, 0.12) 0%, transparent 55%),
+    linear-gradient(180deg, #f8f0f2 0%, #fdf8f4 100%);
 }
 
 /* Hero entrance animations — pure CSS, no JS dependency */

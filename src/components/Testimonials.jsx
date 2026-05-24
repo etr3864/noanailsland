@@ -43,7 +43,7 @@ export default function Testimonials() {
           return (
             <div
               key={i}
-              className="flex-shrink-0 w-64 h-80 rounded-lg bg-beige/5 border border-beige/10 snap-center overflow-hidden hover:rotate-0 hover:-translate-y-1 transition-all duration-300"
+              className="flex-shrink-0 w-64 h-80 rounded-lg bg-white/60 border border-gold/10 snap-center overflow-hidden hover:rotate-0 hover:-translate-y-1 transition-all duration-300"
               style={{ transform: `rotate(${rotation}deg)` }}
             >
               {src ? (

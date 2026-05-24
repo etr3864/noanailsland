@@ -35,8 +35,8 @@ export default function Services() {
             key={i}
             className={`flex items-center justify-between py-3 px-4 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
               service.highlighted
-                ? 'border-2 border-gold bg-gold/5 shadow-[0_0_15px_rgba(201,168,76,0.1)]'
-                : 'border border-beige/10 hover:border-beige/20'
+                ? 'border-2 border-gold bg-gold/5 shadow-[0_0_15px_rgba(201,168,76,0.08)]'
+                : 'border border-gold/15 hover:border-gold/30'
             }`}
           >
             <span className={`text-sm ${service.highlighted ? 'font-bold text-white' : 'text-beige/80'}`}>
