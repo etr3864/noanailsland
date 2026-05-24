@@ -247,7 +247,7 @@ export default function Works() {
         {GALLERY_ITEMS.map((item, i) => (
           <div
             key={i}
-            className="relative flex-shrink-0 w-48 h-64 rounded-lg border border-gold/30 overflow-hidden cursor-pointer hover:border-gold hover:scale-105 transition-all duration-300 snap-center"
+            className="relative flex-shrink-0 w-48 h-64 rounded-xl glass overflow-hidden cursor-pointer hover:scale-105 transition-all duration-300 snap-center"
             onClick={() => openLightbox(i)}
           >
             {item.type === 'video' ? (

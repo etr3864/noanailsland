@@ -31,7 +31,7 @@ export default function BeforeAfterSlider({ beforeSrc, afterSrc, index }) {
   return (
     <div
       ref={containerRef}
-      className="relative aspect-[3/4] w-full rounded-lg border border-gold/30 overflow-hidden cursor-col-resize select-none touch-none"
+      className="relative aspect-[3/4] w-full rounded-xl overflow-hidden cursor-col-resize select-none touch-none shadow-[0_4px_20px_rgba(180,140,200,0.12)]"
       onMouseDown={handleStart}
       onMouseMove={handleMove}
       onMouseUp={handleEnd}

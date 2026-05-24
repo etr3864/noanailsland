@@ -33,10 +33,10 @@ export default function Services() {
         {SERVICES.map((service, i) => (
           <div
             key={i}
-            className={`flex items-center justify-between py-3 px-4 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${
+            className={`flex items-center justify-between py-3 px-4 rounded-xl transition-all duration-300 hover:-translate-y-1 ${
               service.highlighted
-                ? 'border-2 border-gold bg-gold/5 shadow-[0_0_15px_rgba(201,168,76,0.08)]'
-                : 'border border-gold/15 hover:border-gold/30'
+                ? 'glass-strong border-2 border-gold/40 shadow-[0_0_20px_rgba(201,168,76,0.12)]'
+                : 'glass hover:border-gold/30'
             }`}
           >
             <span className={`text-sm ${service.highlighted ? 'font-bold text-beige' : 'text-beige/80'}`}>

@@ -44,7 +44,7 @@ export default function Hero({ onCtaClick }) {
           <span className="text-gold">תראי את זה</span>
         </h1>
 
-        <div className="anim-hero-video w-full max-w-lg aspect-video rounded-lg border border-gold/30 bg-white/50 flex items-center justify-center mb-8 overflow-hidden">
+        <div className="anim-hero-video w-full max-w-lg aspect-video rounded-xl glass flex items-center justify-center mb-8 overflow-hidden">
           <div className="text-beige/30 text-sm text-center p-4">
             <svg className="w-12 h-12 mx-auto mb-2 opacity-40" fill="currentColor" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
@@ -55,7 +55,7 @@ export default function Hero({ onCtaClick }) {
 
         <button
           onClick={onCtaClick}
-          className="anim-hero-cta w-full max-w-sm py-4 rounded-full bg-gold text-white font-bold text-lg cursor-pointer hover:scale-[1.03] active:scale-[0.97] transition-transform mb-5"
+          className="anim-hero-cta w-full max-w-sm py-4 rounded-full glass-btn text-white font-bold text-lg cursor-pointer hover:scale-[1.03] active:scale-[0.97] transition-transform mb-5"
         >
           בואי נקבע לך תור
         </button>

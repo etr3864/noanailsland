@@ -34,50 +34,80 @@ body {
   color: #fff;
 }
 
-/* Subtle gold mesh grid overlay */
+/* Subtle mesh — light version */
 .bg-mesh {
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30h60M30 0v60' stroke='%23c9a84c' stroke-width='0.3' opacity='0.06'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30h60M30 0v60' stroke='%23d4a8c8' stroke-width='0.3' opacity='0.08'/%3E%3C/svg%3E");
 }
 
-/* Dot pattern */
+/* Dot pattern — light version */
 .bg-dots {
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1' fill='%23c9a84c' opacity='0.08'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1' fill='%23c4a0d4' opacity='0.12'/%3E%3C/svg%3E");
 }
 
-/* Section backgrounds — pastel, colorful, feminine */
+/* Glass morphism utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 24px rgba(180, 140, 200, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.glass-strong {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(240, 220, 245, 0.5) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 32px rgba(180, 140, 200, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.glass-btn {
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.9) 0%, rgba(210, 180, 90, 0.85) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Section backgrounds — pastel blobs, colorful, organic */
 .section-hero {
   background:
-    radial-gradient(ellipse 70% 50% at 70% 40%, rgba(230, 190, 220, 0.30) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 50% at 20% 70%, rgba(190, 210, 240, 0.20) 0%, transparent 50%),
-    linear-gradient(170deg, #fdf8f4 0%, #f9f0f3 100%);
+    radial-gradient(circle 280px at 80% 25%, rgba(240, 190, 220, 0.40) 0%, transparent 70%),
+    radial-gradient(circle 200px at 15% 75%, rgba(190, 200, 240, 0.30) 0%, transparent 70%),
+    radial-gradient(circle 150px at 50% 90%, rgba(255, 220, 200, 0.25) 0%, transparent 60%),
+    linear-gradient(170deg, #fef9f6 0%, #f9f0f5 100%);
 }
 
 .section-works {
   background:
-    radial-gradient(ellipse 60% 55% at 30% 40%, rgba(200, 180, 235, 0.25) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 50% at 80% 65%, rgba(240, 200, 210, 0.20) 0%, transparent 50%),
-    linear-gradient(175deg, #f9f0f3 0%, #f5eef8 100%);
+    radial-gradient(circle 250px at 20% 30%, rgba(210, 180, 240, 0.35) 0%, transparent 70%),
+    radial-gradient(circle 200px at 85% 70%, rgba(250, 200, 210, 0.30) 0%, transparent 65%),
+    radial-gradient(circle 120px at 60% 15%, rgba(180, 220, 250, 0.20) 0%, transparent 60%),
+    linear-gradient(175deg, #f9f0f5 0%, #f3ecf8 100%);
 }
 
 .section-services {
   background:
-    radial-gradient(ellipse 65% 50% at 55% 45%, rgba(220, 190, 240, 0.25) 0%, transparent 50%),
-    radial-gradient(ellipse 45% 45% at 20% 70%, rgba(250, 210, 200, 0.18) 0%, transparent 45%),
-    linear-gradient(180deg, #f5eef8 0%, #faf2f4 100%);
+    radial-gradient(circle 260px at 70% 40%, rgba(220, 190, 250, 0.35) 0%, transparent 65%),
+    radial-gradient(circle 180px at 10% 60%, rgba(255, 210, 200, 0.28) 0%, transparent 60%),
+    radial-gradient(circle 140px at 40% 85%, rgba(200, 230, 250, 0.20) 0%, transparent 55%),
+    linear-gradient(180deg, #f3ecf8 0%, #faf2f5 100%);
 }
 
 .section-testimonials {
   background:
-    radial-gradient(ellipse 60% 55% at 40% 50%, rgba(210, 180, 230, 0.22) 0%, transparent 50%),
-    radial-gradient(ellipse 45% 40% at 80% 30%, rgba(190, 220, 240, 0.18) 0%, transparent 45%),
-    linear-gradient(170deg, #faf2f4 0%, #f4eef6 100%);
+    radial-gradient(circle 220px at 35% 45%, rgba(230, 195, 240, 0.32) 0%, transparent 65%),
+    radial-gradient(circle 180px at 80% 25%, rgba(190, 220, 245, 0.25) 0%, transparent 60%),
+    radial-gradient(circle 150px at 65% 80%, rgba(250, 210, 220, 0.22) 0%, transparent 55%),
+    linear-gradient(170deg, #faf2f5 0%, #f4edf7 100%);
 }
 
 .section-location {
   background:
-    radial-gradient(ellipse 65% 50% at 50% 50%, rgba(215, 185, 235, 0.22) 0%, transparent 50%),
-    radial-gradient(ellipse 45% 45% at 75% 25%, rgba(240, 200, 215, 0.18) 0%, transparent 45%),
-    linear-gradient(180deg, #f4eef6 0%, #fdf8f4 100%);
+    radial-gradient(circle 240px at 50% 50%, rgba(215, 185, 245, 0.30) 0%, transparent 65%),
+    radial-gradient(circle 180px at 85% 20%, rgba(250, 200, 215, 0.25) 0%, transparent 60%),
+    radial-gradient(circle 130px at 15% 80%, rgba(200, 225, 250, 0.20) 0%, transparent 55%),
+    linear-gradient(180deg, #f4edf7 0%, #fef9f6 100%);
 }
 
 /* Hero entrance animations — pure CSS, no JS dependency */
