@@ -1,137 +1,128 @@
-import { motion } from 'framer-motion'
-
-const fade = () => ({
-  initial: { opacity: 0 },
-  whileInView: { opacity: 1 },
-  viewport: { once: true },
-  transition: { duration: 0.4 },
-})
-
-function Petal({ className, delay = 0 }) {
+function Petal({ className }) {
   return (
-    <motion.svg viewBox="0 0 40 60" className={className} {...fade(delay)}>
+    <svg viewBox="0 0 40 60" className={className}>
       <path d="M20 2 C30 10 36 25 36 38 C36 50 28 58 20 58 C12 58 4 50 4 38 C4 25 10 10 20 2z" fill="currentColor" />
-    </motion.svg>
+    </svg>
   )
 }
 
-function Leaf({ className, delay = 0 }) {
+function Leaf({ className }) {
   return (
-    <motion.svg viewBox="0 0 50 80" className={className} {...fade(delay)}>
+    <svg viewBox="0 0 50 80" className={className}>
       <path d="M25 4 C40 20 45 45 38 62 C34 72 28 78 25 78 C22 78 16 72 12 62 C5 45 10 20 25 4z" fill="none" stroke="currentColor" strokeWidth="1" />
       <path d="M25 15 L25 70" fill="none" stroke="currentColor" strokeWidth="0.5" />
-    </motion.svg>
+    </svg>
   )
 }
 
-function Mirror({ className, delay = 0 }) {
+function Mirror({ className }) {
   return (
-    <motion.svg viewBox="0 0 60 90" className={className} {...fade(delay)}>
+    <svg viewBox="0 0 60 90" className={className}>
       <ellipse cx="30" cy="32" rx="22" ry="26" fill="none" stroke="currentColor" strokeWidth="0.8" />
       <rect x="27" y="58" width="6" height="20" rx="3" fill="currentColor" opacity="0.5" />
-    </motion.svg>
+    </svg>
   )
 }
 
-function Drop({ className, delay = 0 }) {
+function Drop({ className }) {
   return (
-    <motion.svg viewBox="0 0 30 45" className={className} {...fade(delay)}>
+    <svg viewBox="0 0 30 45" className={className}>
       <path d="M15 3 C15 3 27 18 27 28 C27 35 21 42 15 42 C9 42 3 35 3 28 C3 18 15 3 15 3z" fill="currentColor" />
-    </motion.svg>
+    </svg>
   )
 }
 
-function BrushStroke({ className, delay = 0 }) {
+function BrushStroke({ className }) {
   return (
-    <motion.svg viewBox="0 0 200 40" className={className} preserveAspectRatio="none" {...fade(delay)}>
+    <svg viewBox="0 0 200 40" className={className} preserveAspectRatio="none">
       <path d="M5 20 C30 8 60 32 100 18 S160 28 195 15" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </motion.svg>
+    </svg>
   )
 }
 
-function Sparkle({ className, delay = 0 }) {
+function Sparkle({ className }) {
   return (
-    <motion.svg viewBox="0 0 40 40" className={className} {...fade(delay)}>
+    <svg viewBox="0 0 40 40" className={className}>
       <path d="M20 4 L22 16 L34 18 L22 20 L20 34 L18 20 L4 18 L18 16 Z" fill="currentColor" />
-    </motion.svg>
+    </svg>
   )
 }
 
-function Ring({ className, delay = 0 }) {
+function Ring({ className }) {
   return (
-    <motion.svg viewBox="0 0 80 80" className={className} {...fade(delay)}>
+    <svg viewBox="0 0 80 80" className={className}>
       <circle cx="40" cy="40" r="30" fill="none" stroke="currentColor" strokeWidth="0.6" />
       <circle cx="40" cy="40" r="20" fill="none" stroke="currentColor" strokeWidth="0.3" />
-    </motion.svg>
+    </svg>
   )
 }
 
-function NailAlmond({ className, delay = 0 }) {
+function NailAlmond({ className }) {
   return (
-    <motion.svg viewBox="0 0 40 70" className={className} {...fade(delay)}>
+    <svg viewBox="0 0 40 70" className={className}>
       <path d="M20 2c8 0 15 8 15 22 0 18-7 40-15 44C12 64 5 42 5 24 5 10 12 2 20 2z" fill="currentColor" />
-    </motion.svg>
+    </svg>
   )
 }
 
-function Flower({ className, delay = 0 }) {
+function Flower({ className }) {
   return (
-    <motion.svg viewBox="0 0 60 60" className={className} {...fade(delay)}>
+    <svg viewBox="0 0 60 60" className={className}>
       <ellipse cx="30" cy="18" rx="7" ry="12" fill="currentColor" opacity="0.7" />
       <ellipse cx="30" cy="42" rx="7" ry="12" fill="currentColor" opacity="0.7" />
       <ellipse cx="18" cy="30" rx="12" ry="7" fill="currentColor" opacity="0.7" />
       <ellipse cx="42" cy="30" rx="12" ry="7" fill="currentColor" opacity="0.7" />
       <circle cx="30" cy="30" r="5" fill="currentColor" />
-    </motion.svg>
+    </svg>
   )
 }
 
-function Dots({ className, delay = 0, count = 5 }) {
+function Dots({ className, count = 5 }) {
   return (
-    <motion.svg viewBox="0 0 120 40" className={className} {...fade(delay)}>
+    <svg viewBox="0 0 120 40" className={className}>
       {[...Array(count)].map((_, i) => (
         <circle key={i} cx={12 + i * 22} cy={20 + Math.sin(i * 1.4) * 10} r={1.5 + (i % 2)} fill="currentColor" />
       ))}
-    </motion.svg>
+    </svg>
   )
 }
 
-function Lipstick({ className, delay = 0 }) {
+function Lipstick({ className }) {
   return (
-    <motion.svg viewBox="0 0 30 80" className={className} {...fade(delay)}>
+    <svg viewBox="0 0 30 80" className={className}>
       <path d="M10 4 L20 4 L22 22 L8 22 Z" fill="currentColor" />
       <rect x="6" y="22" width="18" height="6" rx="1" fill="currentColor" opacity="0.4" />
       <rect x="8" y="28" width="14" height="44" rx="2" fill="none" stroke="currentColor" strokeWidth="0.8" />
       <line x1="10" y1="40" x2="20" y2="40" stroke="currentColor" strokeWidth="0.4" />
-    </motion.svg>
+    </svg>
   )
 }
 
-function Perfume({ className, delay = 0 }) {
+function Perfume({ className }) {
   return (
-    <motion.svg viewBox="0 0 50 80" className={className} {...fade(delay)}>
+    <svg viewBox="0 0 50 80" className={className}>
       <rect x="20" y="4" width="10" height="10" rx="1" fill="currentColor" opacity="0.6" />
       <rect x="22" y="14" width="6" height="6" fill="currentColor" opacity="0.4" />
       <path d="M14 20 L36 20 L40 28 L40 70 Q40 76 34 76 L16 76 Q10 76 10 70 L10 28 Z" fill="none" stroke="currentColor" strokeWidth="1" />
       <ellipse cx="25" cy="48" rx="8" ry="6" fill="currentColor" opacity="0.25" />
-    </motion.svg>
+    </svg>
   )
 }
 
-function MakeupBrush({ className, delay = 0 }) {
+function MakeupBrush({ className }) {
   return (
-    <motion.svg viewBox="0 0 20 90" className={className} {...fade(delay)}>
+    <svg viewBox="0 0 20 90" className={className}>
       <path d="M10 2 Q4 14 6 26 L14 26 Q16 14 10 2z" fill="currentColor" opacity="0.55" />
       <rect x="6" y="26" width="8" height="6" fill="currentColor" />
       <rect x="6" y="32" width="8" height="50" rx="1" fill="none" stroke="currentColor" strokeWidth="0.8" />
       <circle cx="10" cy="86" r="2" fill="currentColor" opacity="0.6" />
-    </motion.svg>
+    </svg>
   )
 }
 
-function Lashes({ className, delay = 0 }) {
+function Lashes({ className }) {
   return (
-    <motion.svg viewBox="0 0 80 40" className={className} {...fade(delay)}>
+    <svg viewBox="0 0 80 40" className={className}>
       <path d="M5 28 Q40 8 75 28" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
       <line x1="15" y1="22" x2="13" y2="10" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
       <line x1="25" y1="17" x2="24" y2="4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
@@ -139,49 +130,49 @@ function Lashes({ className, delay = 0 }) {
       <line x1="45" y1="14" x2="45" y2="0" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
       <line x1="55" y1="17" x2="56" y2="4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
       <line x1="65" y1="22" x2="67" y2="10" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-    </motion.svg>
+    </svg>
   )
 }
 
-function Compact({ className, delay = 0 }) {
+function Compact({ className }) {
   return (
-    <motion.svg viewBox="0 0 70 70" className={className} {...fade(delay)}>
+    <svg viewBox="0 0 70 70" className={className}>
       <circle cx="35" cy="35" r="30" fill="none" stroke="currentColor" strokeWidth="1" />
       <circle cx="35" cy="35" r="22" fill="none" stroke="currentColor" strokeWidth="0.5" />
       <circle cx="35" cy="35" r="14" fill="currentColor" opacity="0.3" />
       <circle cx="35" cy="6" r="3" fill="currentColor" opacity="0.6" />
-    </motion.svg>
+    </svg>
   )
 }
 
-function Pearls({ className, delay = 0 }) {
+function Pearls({ className }) {
   return (
-    <motion.svg viewBox="0 0 140 30" className={className} preserveAspectRatio="none" {...fade(delay)}>
+    <svg viewBox="0 0 140 30" className={className} preserveAspectRatio="none">
       <path d="M5 15 Q35 5 70 15 T135 15" fill="none" stroke="currentColor" strokeWidth="0.4" />
       {[10, 25, 42, 60, 78, 96, 113, 128].map((cx, i) => (
         <circle key={i} cx={cx} cy={15 + (i % 2 === 0 ? 0 : 1)} r="3" fill="currentColor" opacity={i % 2 === 0 ? 0.6 : 0.4} />
       ))}
-    </motion.svg>
+    </svg>
   )
 }
 
-function Heart({ className, delay = 0 }) {
+function Heart({ className }) {
   return (
-    <motion.svg viewBox="0 0 40 36" className={className} {...fade(delay)}>
+    <svg viewBox="0 0 40 36" className={className}>
       <path d="M20 32 L6 18 Q-2 10 6 4 Q14 0 20 8 Q26 0 34 4 Q42 10 34 18 Z" fill="none" stroke="currentColor" strokeWidth="1.2" />
-    </motion.svg>
+    </svg>
   )
 }
 
-function ButterflyAbstract({ className, delay = 0 }) {
+function ButterflyAbstract({ className }) {
   return (
-    <motion.svg viewBox="0 0 60 50" className={className} {...fade(delay)}>
+    <svg viewBox="0 0 60 50" className={className}>
       <path d="M30 10 Q15 0 6 10 Q0 20 8 28 Q18 32 30 22z" fill="currentColor" opacity="0.45" />
       <path d="M30 10 Q45 0 54 10 Q60 20 52 28 Q42 32 30 22z" fill="currentColor" opacity="0.45" />
       <path d="M30 22 Q12 30 8 42 Q14 46 22 42 Q28 36 30 28z" fill="currentColor" opacity="0.35" />
       <path d="M30 22 Q48 30 52 42 Q46 46 38 42 Q32 36 30 28z" fill="currentColor" opacity="0.35" />
       <line x1="30" y1="8" x2="30" y2="44" stroke="currentColor" strokeWidth="0.8" />
-    </motion.svg>
+    </svg>
   )
 }
 
