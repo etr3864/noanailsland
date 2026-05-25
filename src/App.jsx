@@ -6,7 +6,6 @@ import { WHATSAPP_URL } from './config/constants'
 
 const Works = lazy(() => import('./components/Works'))
 const Services = lazy(() => import('./components/Services'))
-const Testimonials = lazy(() => import('./components/Testimonials'))
 const Location = lazy(() => import('./components/Location'))
 
 const openWhatsApp = () => window.open(WHATSAPP_URL, '_blank')
@@ -20,7 +19,6 @@ export default function App() {
         <Suspense fallback={null}>
           <Works />
           <Services />
-          <Testimonials />
           <Location />
         </Suspense>
       </main>

@@ -6,7 +6,6 @@ const NAV_ITEMS = [
   { label: 'בית', href: '#hero' },
   { label: 'עבודות', href: '#works' },
   { label: 'מחירון', href: '#services' },
-  { label: 'ביקורות', href: '#testimonials' },
   { label: 'מיקום', href: '#location' },
 ]
 
