@@ -1,19 +1,79 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useCallback } from 'react'
 import { HeroDecor } from './SectionDecor'
 import { ADDRESS, HOURS, WAZE_URL } from '../config/constants'
 
 const HERO_VIDEO = 'https://res.cloudinary.com/daowx6msw/video/upload/w_480,q_60,br_800k/v1779742708/%D7%A0%D7%95%D7%A2%D7%94_%D7%A1%D7%A8%D7%98%D7%95%D7%9F_%D7%A8%D7%90%D7%A9_%D7%93%D7%A3_ocnt68.mov'
 const HERO_POSTER = 'https://res.cloudinary.com/daowx6msw/video/upload/w_480,q_auto,f_jpg,so_0/v1779742708/%D7%A0%D7%95%D7%A2%D7%94_%D7%A1%D7%A8%D7%98%D7%95%D7%9F_%D7%A8%D7%90%D7%A9_%D7%93%D7%A3_ocnt68.jpg'
 
-export default function Hero({ onCtaClick }) {
-  const videoRef = useRef(null)
+function VideoControls({ videoRef }) {
+  const [playing, setPlaying] = useState(true)
   const [muted, setMuted] = useState(true)
 
-  function toggleMute() {
+  const togglePlay = useCallback(() => {
+    if (!videoRef.current) return
+    if (videoRef.current.paused) {
+      videoRef.current.play()
+      setPlaying(true)
+    } else {
+      videoRef.current.pause()
+      setPlaying(false)
+    }
+  }, [videoRef])
+
+  const toggleMute = useCallback(() => {
     if (!videoRef.current) return
     videoRef.current.muted = !videoRef.current.muted
     setMuted(videoRef.current.muted)
-  }
+  }, [videoRef])
+
+  const skip = useCallback((seconds) => {
+    if (!videoRef.current) return
+    videoRef.current.currentTime += seconds
+  }, [videoRef])
+
+  const goFullscreen = useCallback(() => {
+    if (videoRef.current?.requestFullscreen) {
+      videoRef.current.requestFullscreen()
+    } else if (videoRef.current?.webkitEnterFullscreen) {
+      videoRef.current.webkitEnterFullscreen()
+    }
+  }, [videoRef])
+
+  return (
+    <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-3 py-2 bg-black/20 backdrop-blur-sm">
+      <div className="flex items-center gap-2">
+        <button onClick={() => skip(-5)} className="w-7 h-7 flex items-center justify-center text-white/80 hover:text-white transition-colors" aria-label="5 שניות אחורה">
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.5 3C17.15 3 21.08 6.03 22.44 10.22l-1.9.63C19.34 7.27 16.18 5 12.5 5 7.81 5 4.01 8.58 3.6 13H6l-4 4-4-4h2.6C1.01 7.48 6.24 3 12.5 3zM7 13h2v4H7v-4zm4-2h2v6h-2v-6zm4-1h2v7h-2V10z"/></svg>
+        </button>
+        <button onClick={togglePlay} className="w-8 h-8 flex items-center justify-center text-white/90 hover:text-white transition-colors" aria-label={playing ? 'עצירה' : 'הפעלה'}>
+          {playing ? (
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+          ) : (
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          )}
+        </button>
+        <button onClick={() => skip(5)} className="w-7 h-7 flex items-center justify-center text-white/80 hover:text-white transition-colors" aria-label="5 שניות קדימה">
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M11.5 3C6.85 3 2.92 6.03 1.56 10.22l1.9.63C4.66 7.27 7.82 5 11.5 5c4.69 0 8.49 3.58 8.9 8H18l4 4 4-4h-2.6C22.99 7.48 17.76 3 11.5 3zM17 13h-2v4h2v-4zm-4-2h-2v6h2v-6zm-4-1H7v7h2V10z"/></svg>
+        </button>
+      </div>
+      <div className="flex items-center gap-2">
+        <button onClick={toggleMute} className="w-7 h-7 flex items-center justify-center text-white/80 hover:text-white transition-colors" aria-label={muted ? 'הפעלת קול' : 'השתקה'}>
+          {muted ? (
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+          ) : (
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          )}
+        </button>
+        <button onClick={goFullscreen} className="w-7 h-7 flex items-center justify-center text-white/80 hover:text-white transition-colors" aria-label="מסך מלא">
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+        </button>
+      </div>
+    </div>
+  )
+}
+
+export default function Hero({ onCtaClick }) {
+  const videoRef = useRef(null)
 
   return (
     <section id="hero" className="relative min-h-screen px-5 pt-24 pb-10 flex flex-col overflow-hidden section-hero grain contour">
@@ -28,7 +88,7 @@ export default function Hero({ onCtaClick }) {
           <span className="text-gold">תראי את זה</span>
         </h1>
 
-        <div className="anim-hero-video relative w-full aspect-video rounded-2xl glass overflow-hidden mb-8">
+        <div className="anim-hero-video relative w-full aspect-video rounded-2xl overflow-hidden mb-8 shadow-lg">
           <video
             ref={videoRef}
             src={HERO_VIDEO}
@@ -40,36 +100,7 @@ export default function Hero({ onCtaClick }) {
             preload="auto"
             className="w-full h-full object-cover"
           />
-          <button
-            onClick={() => {
-              if (videoRef.current?.requestFullscreen) {
-                videoRef.current.requestFullscreen()
-              } else if (videoRef.current?.webkitEnterFullscreen) {
-                videoRef.current.webkitEnterFullscreen()
-              }
-            }}
-            className="absolute bottom-3 right-3 w-9 h-9 rounded-full glass flex items-center justify-center text-beige/80 hover:scale-110 transition-transform"
-            aria-label="מסך מלא"
-          >
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" />
-            </svg>
-          </button>
-          <button
-            onClick={toggleMute}
-            className="absolute bottom-3 left-3 w-9 h-9 rounded-full glass flex items-center justify-center text-beige/80 hover:scale-110 transition-transform"
-            aria-label={muted ? 'הפעלת קול' : 'השתקה'}
-          >
-            {muted ? (
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
-              </svg>
-            ) : (
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
-              </svg>
-            )}
-          </button>
+          <VideoControls videoRef={videoRef} />
         </div>
 
         <button
