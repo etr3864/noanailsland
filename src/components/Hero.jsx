@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import { HeroDecor } from './SectionDecor'
 import { ADDRESS, HOURS, WAZE_URL } from '../config/constants'
 
-const HERO_VIDEO = 'https://res.cloudinary.com/daowx6msw/video/upload/w_800,q_auto/v1779742708/%D7%A0%D7%95%D7%A2%D7%94_%D7%A1%D7%A8%D7%98%D7%95%D7%9F_%D7%A8%D7%90%D7%A9_%D7%93%D7%A3_ocnt68.mov'
+const HERO_VIDEO = 'https://res.cloudinary.com/daowx6msw/video/upload/w_640,q_70,br_1500k/v1779742708/%D7%A0%D7%95%D7%A2%D7%94_%D7%A1%D7%A8%D7%98%D7%95%D7%9F_%D7%A8%D7%90%D7%A9_%D7%93%D7%A3_ocnt68.mov'
 
 export default function Hero({ onCtaClick }) {
   const videoRef = useRef(null)
@@ -27,7 +27,7 @@ export default function Hero({ onCtaClick }) {
           <span className="text-gold">תראי את זה</span>
         </h1>
 
-        <div className="anim-hero-video relative w-full aspect-video rounded-2xl glass overflow-hidden mb-8">
+        <div className="anim-hero-video relative w-[calc(100%+2.5rem)] -mx-5 aspect-video rounded-none sm:rounded-2xl sm:w-full sm:mx-0 glass overflow-hidden mb-8">
           <video
             ref={videoRef}
             src={HERO_VIDEO}
@@ -35,8 +35,24 @@ export default function Hero({ onCtaClick }) {
             muted
             loop
             playsInline
+            preload="auto"
             className="w-full h-full object-cover"
           />
+          <button
+            onClick={() => {
+              if (videoRef.current?.requestFullscreen) {
+                videoRef.current.requestFullscreen()
+              } else if (videoRef.current?.webkitEnterFullscreen) {
+                videoRef.current.webkitEnterFullscreen()
+              }
+            }}
+            className="absolute bottom-3 right-3 w-9 h-9 rounded-full glass flex items-center justify-center text-beige/80 hover:scale-110 transition-transform"
+            aria-label="מסך מלא"
+          >
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" />
+            </svg>
+          </button>
           <button
             onClick={toggleMute}
             className="absolute bottom-3 left-3 w-9 h-9 rounded-full glass flex items-center justify-center text-beige/80 hover:scale-110 transition-transform"
