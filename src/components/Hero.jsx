@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import { HeroDecor } from './SectionDecor'
 import { ADDRESS, HOURS, WAZE_URL } from '../config/constants'
 
-const HERO_VIDEO = 'https://res.cloudinary.com/daowx6msw/video/upload/c_fill,ar_9:16,g_auto,w_480,q_auto,f_auto/v1779742708/%D7%A0%D7%95%D7%A2%D7%94_%D7%A1%D7%A8%D7%98%D7%95%D7%9F_%D7%A8%D7%90%D7%A9_%D7%93%D7%A3_ocnt68.mp4'
+const HERO_VIDEO = 'https://res.cloudinary.com/daowx6msw/video/upload/w_800,q_auto,f_auto/v1779742708/%D7%A0%D7%95%D7%A2%D7%94_%D7%A1%D7%A8%D7%98%D7%95%D7%9F_%D7%A8%D7%90%D7%A9_%D7%93%D7%A3_ocnt68.mp4'
 
 export default function Hero({ onCtaClick }) {
   const videoRef = useRef(null)
@@ -27,7 +27,7 @@ export default function Hero({ onCtaClick }) {
           <span className="text-gold">תראי את זה</span>
         </h1>
 
-        <div className="anim-hero-video relative w-full max-w-xs aspect-[9/16] rounded-2xl glass overflow-hidden mb-8">
+        <div className="anim-hero-video relative w-full max-w-lg aspect-video rounded-2xl glass overflow-hidden mb-8">
           <video
             ref={videoRef}
             src={HERO_VIDEO}
