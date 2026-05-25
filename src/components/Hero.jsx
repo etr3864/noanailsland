@@ -2,7 +2,7 @@ import { useRef, useState, useCallback } from 'react'
 import { HeroDecor } from './SectionDecor'
 import { ADDRESS, HOURS, WAZE_URL } from '../config/constants'
 
-const HERO_VIDEO = 'https://res.cloudinary.com/daowx6msw/video/upload/w_480,q_60,br_800k/v1779742708/%D7%A0%D7%95%D7%A2%D7%94_%D7%A1%D7%A8%D7%98%D7%95%D7%9F_%D7%A8%D7%90%D7%A9_%D7%93%D7%A3_ocnt68.mov'
+const HERO_VIDEO = 'https://res.cloudinary.com/daowx6msw/video/upload/v1779742708/%D7%A0%D7%95%D7%A2%D7%94_%D7%A1%D7%A8%D7%98%D7%95%D7%9F_%D7%A8%D7%90%D7%A9_%D7%93%D7%A3_ocnt68.mov'
 const HERO_POSTER = 'https://res.cloudinary.com/daowx6msw/video/upload/w_480,q_auto,f_jpg,so_0/v1779742708/%D7%A0%D7%95%D7%A2%D7%94_%D7%A1%D7%A8%D7%98%D7%95%D7%9F_%D7%A8%D7%90%D7%A9_%D7%93%D7%A3_ocnt68.jpg'
 
 function VideoControls({ videoRef }) {
