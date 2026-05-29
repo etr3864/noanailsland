@@ -1,6 +1,7 @@
 import { useRef, useState, useCallback, useEffect } from 'react'
 import { HeroDecor } from './SectionDecor'
 import { ADDRESS, HOURS, WAZE_URL } from '../config/constants'
+import { trackNavigationClick } from '../utils/analytics'
 
 const HERO_VIDEO = 'https://res.cloudinary.com/daowx6msw/video/upload/v1779744674/hero_video_hq_izmiah.mp4'
 const HERO_POSTER = 'https://res.cloudinary.com/daowx6msw/video/upload/so_0,w_720,q_auto,f_jpg/v1779744674/hero_video_hq_izmiah.jpg'
@@ -138,7 +139,7 @@ export default function Hero({ onCtaClick }) {
         </div>
 
         <button
-          onClick={onCtaClick}
+          onClick={() => onCtaClick('hero')}
           className="anim-hero-cta w-full max-w-sm py-4 rounded-full glass-btn text-white font-bold text-lg cursor-pointer hover:scale-[1.03] active:scale-[0.97] transition-transform mb-5"
         >
           בואי נקבע לך תור
@@ -165,6 +166,7 @@ export default function Hero({ onCtaClick }) {
             href={WAZE_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackNavigationClick('hero_waze')}
             className="inline-block text-gold/70 underline underline-offset-2 text-xs mt-1"
           >
             נווטי בוויז

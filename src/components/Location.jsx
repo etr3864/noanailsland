@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { ADDRESS, HOURS, WAZE_URL, SOCIAL } from '../config/constants'
 import GoldDivider from './GoldDivider'
 import { LocationDecor } from './SectionDecor'
+import { trackNavigationClick, trackSocialClick } from '../utils/analytics'
 
 const MAPS_EMBED = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.5!2d34.7913!3d31.2518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z16ch15Mg15XXqNeV16og15nXqNeV16nXnNeZ150gNjQsINeR15DXqCDXqdeR16I!5e0!3m2!1siw!2sil!4v1700000000000'
 
@@ -70,6 +71,7 @@ export default function Location() {
           href={WAZE_URL}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackNavigationClick('location_waze')}
           className="inline-flex items-center gap-2 glass-strong text-beige px-5 py-2.5 rounded-full text-sm font-bold hover:scale-[1.02] transition-transform"
         >
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -83,6 +85,7 @@ export default function Location() {
             href={SOCIAL.instagram}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackSocialClick('instagram')}
             className="text-beige/60 hover:text-instagram transition-colors duration-300"
             aria-label="Instagram"
           >
@@ -94,6 +97,7 @@ export default function Location() {
             href={SOCIAL.facebook}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackSocialClick('facebook')}
             className="text-beige/60 hover:text-facebook transition-colors duration-300"
             aria-label="Facebook"
           >

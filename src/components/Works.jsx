@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import BeforeAfterSlider from './BeforeAfterSlider'
 import GoldDivider from './GoldDivider'
 import { WorksDecor } from './SectionDecor'
+import { trackGalleryView } from '../utils/analytics'
 
 const BEFORE_AFTER_PAIRS = [
   {
@@ -174,7 +175,10 @@ export default function Works() {
     return () => clearTimeout(timeout)
   }, [])
 
-  const openLightbox = (index) => setLightboxIndex(index)
+  const openLightbox = (index) => {
+    trackGalleryView(index, GALLERY_ITEMS[index].type)
+    setLightboxIndex(index)
+  }
   const closeLightbox = () => setLightboxIndex(null)
   const nextItem = () => setLightboxIndex((i) => (i + 1) % GALLERY_ITEMS.length)
   const prevItem = () => setLightboxIndex((i) => (i - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length)

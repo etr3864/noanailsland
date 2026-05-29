@@ -1,11 +1,26 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { WHATSAPP_URL, WEBHOOK_URL } from '../config/constants'
+import { trackCtaClick, trackLeadFormStart, trackLeadFormSubmit } from '../utils/analytics'
 
 export default function ContactSheet({ open, onClose }) {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [sending, setSending] = useState(false)
+  const hasStartedForm = useRef(false)
+
+  useEffect(() => {
+    if (!open) {
+      hasStartedForm.current = false
+    }
+  }, [open])
+
+  const handleFocus = () => {
+    if (!hasStartedForm.current) {
+      trackLeadFormStart()
+      hasStartedForm.current = true
+    }
+  }
 
   const isValid = name.trim().length >= 2 && /^0\d{8,9}$/.test(phone.replace(/[-\s]/g, ''))
 
@@ -25,10 +40,13 @@ export default function ContactSheet({ open, onClose }) {
           timestamp: new Date().toISOString(),
         }),
       })
+      trackLeadFormSubmit(true)
     } catch {
       // webhook failure shouldn't block the user
+      trackLeadFormSubmit(false)
     }
 
+    trackCtaClick('contact_form_submit')
     window.open(WHATSAPP_URL, '_blank')
     setSending(false)
     onClose()
@@ -70,6 +88,7 @@ export default function ContactSheet({ open, onClose }) {
                 placeholder="השם שלך"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                onFocus={handleFocus}
                 className="w-full bg-beige/10 border border-beige/20 rounded-xl px-4 py-3 text-beige placeholder:text-beige/40 outline-none focus:border-gold transition-colors"
                 autoComplete="name"
               />
@@ -78,6 +97,7 @@ export default function ContactSheet({ open, onClose }) {
                 placeholder="מספר טלפון"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
+                onFocus={handleFocus}
                 className="w-full bg-beige/10 border border-beige/20 rounded-xl px-4 py-3 text-beige placeholder:text-beige/40 outline-none focus:border-gold transition-colors text-left dir-ltr"
                 dir="ltr"
                 autoComplete="tel"

@@ -29,7 +29,7 @@ export default function AboutMe() {
       >
         <img
           src={PORTRAIT_URL}
-          alt="נועה תורגמן"
+          alt="נועה טורגמן"
           className="w-full h-[130%] object-cover object-top"
           loading="lazy"
           decoding="async"

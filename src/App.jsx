@@ -3,12 +3,16 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
 import { WHATSAPP_URL } from './config/constants'
+import { trackCtaClick } from './utils/analytics'
 
 const Works = lazy(() => import('./components/Works'))
 const Services = lazy(() => import('./components/Services'))
 const Location = lazy(() => import('./components/Location'))
 
-const openWhatsApp = () => window.open(WHATSAPP_URL, '_blank')
+const openWhatsApp = (location = 'unknown') => {
+  trackCtaClick(location)
+  window.open(WHATSAPP_URL, '_blank')
+}
 
 export default function App() {
   return (

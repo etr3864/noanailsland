@@ -1,9 +1,11 @@
 import { useState, useRef } from 'react'
+import { trackSliderInteract } from '../utils/analytics'
 
 export default function BeforeAfterSlider({ beforeSrc, afterSrc, index }) {
   const [position, setPosition] = useState(50)
   const containerRef = useRef(null)
   const isDragging = useRef(false)
+  const hasTracked = useRef(false)
 
   const updatePosition = (clientX) => {
     const rect = containerRef.current.getBoundingClientRect()
@@ -16,6 +18,11 @@ export default function BeforeAfterSlider({ beforeSrc, afterSrc, index }) {
     isDragging.current = true
     const clientX = e.touches ? e.touches[0].clientX : e.clientX
     updatePosition(clientX)
+
+    if (!hasTracked.current) {
+      trackSliderInteract(index)
+      hasTracked.current = true
+    }
   }
 
   const handleMove = (e) => {
